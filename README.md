@@ -1,1 +1,0 @@
-# was2eat-landing
