@@ -23,15 +23,15 @@ const Navigation = () => {
           }}
         >
           <Link href="/">
-            <Image src="/images/logo-transparent.png" alt="Company Logo" width={120} height={120} />
+            <Image src="/images/logo-transparent-with-text.png" alt="Company Logo" width={120} height={70} />
           </Link>
 
           <Box sx={{ display: "flex", gap: 3 }}>
             <Button href="#application" color="inherit">
               Application
             </Button>
-            <Button href="#contact" color="inherit">
-              Contact
+            <Button href="#about" color="inherit">
+              About Us
             </Button>
             <Button href="#careers" color="inherit">
               Careers
