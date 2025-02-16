@@ -35,9 +35,9 @@ const Navigation = () => {
             <Button href="#application" color="inherit">
               Application
             </Button>
-            <Button href="#about" color="inherit">
-              About Us
-            </Button>
+            <Link href="/team" passHref>
+              <Button color="inherit">Team</Button>
+            </Link>
             <Button href="#careers" color="inherit">
               Careers
             </Button>
