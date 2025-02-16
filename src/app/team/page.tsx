@@ -1,6 +1,17 @@
-import { Box, Container, Grid, Typography, Avatar, Divider } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  Typography,
+  Avatar,
+  Divider,
+  IconButton,
+  Tooltip,
+} from "@mui/material";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const teamMembers = [
   {
@@ -9,6 +20,8 @@ const teamMembers = [
     description:
       "Naz is a Master's student in Applied Data Science at the University of Göttingen. Passionate about AI-driven innovation, she focuses on frontend development and AI model implementation for Was2Eat.",
     image: "/images/team/naz-demirsoy.jpeg",
+    linkedin: "https://www.linkedin.com/in/nazdemirsoy",
+    github: "https://github.com/nazdemirsoyy",
   },
   {
     name: "Burak Colak",
@@ -16,6 +29,8 @@ const teamMembers = [
     description:
       "Burak is a Master's student in Applied Data Science at the University of Göttingen. He specializes in backend development, ensuring secure, scalable infrastructure while optimizing AI functionalities.",
     image: "/images/team/burak-colak.jpeg",
+    linkedin: "https://www.linkedin.com/in/burakcolak/",
+    github: "https://github.com/colakburak",
   },
   {
     name: "Yusif Hashimov",
@@ -23,6 +38,8 @@ const teamMembers = [
     description:
       "Yusif is a Master's student in Applied Data Science at the University of Göttingen. He is dedicated to frontend development and AI-powered features, enhancing the user experience at Was2Eat.",
     image: "/images/team/yusif-hashimov.png",
+    linkedin: "https://www.linkedin.com/in/yusif-hashimov/",
+    github: "https://github.com/Jose-Hash-Dev",
   },
 ];
 
@@ -68,6 +85,20 @@ export default function AboutPage() {
               <Typography variant="body1" sx={{ mt: 1 }}>
                 {member.description}
               </Typography>
+
+              <Box sx={{ display: "flex", justifyContent: "center", gap: 1, mt: 1 }}>
+                <Tooltip title="LinkedIn">
+                  <IconButton href={member.linkedin} target="_blank" sx={{ color: "#0077B5" }}>
+                    <LinkedInIcon sx={{ fontSize: 32 }} />
+                  </IconButton>
+                </Tooltip>
+
+                <Tooltip title="GitHub">
+                  <IconButton href={member.github} target="_blank" sx={{ color: "#000000" }}>
+                    <GitHubIcon sx={{ fontSize: 32 }} />
+                  </IconButton>
+                </Tooltip>
+              </Box>
             </Grid>
           ))}
         </Grid>
