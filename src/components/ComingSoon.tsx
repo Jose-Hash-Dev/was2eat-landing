@@ -25,7 +25,11 @@ export default function ComingSoon({ pageName }: { pageName: string }) {
             alt="Coming Soon"
             width={600}
             height={400}
-            style={{ borderRadius: "12px" }}
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              borderRadius: "12px",
+            }}
           />
         </Box>
 
