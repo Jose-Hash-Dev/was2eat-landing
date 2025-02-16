@@ -14,10 +14,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Was2Eat",
-  description: "Was2Eat",
+  title: "Was2Eat - Scan, Ask AI, Eat Smarter",
+  description:
+    "Was2Eat helps you make smarter, healthier food choices with AI-powered product insights.",
   icons: {
     icon: "/images/logo-transparent-without-text.png",
+  },
+  openGraph: {
+    title: "Was2Eat - Scan, Ask AI, Eat Smarter",
+    description: "AI-powered product scanner for healthier eating.",
+    url: "https://was2eat.com",
+    type: "website",
+    images: [
+      {
+        url: "https://was2eat.com/images/logo-transparent-with-text.png", // Replace with the actual image URL
+        width: 1200,
+        height: 630,
+        alt: "Was2Eat App Screenshot",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@was2eat",
+    title: "Was2Eat - Scan, Ask AI, Eat Smarter",
+    description: "AI-powered product scanner for healthier eating.",
+    images: ["https://was2eat.com/images/og-image.jpg"],
   },
 };
 
