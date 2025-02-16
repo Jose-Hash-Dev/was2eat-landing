@@ -1,6 +1,9 @@
-import { Box, Container, Grid, Link, Typography } from "@mui/material";
+import { Box, Container, Grid, Link, Typography, IconButton } from "@mui/material";
 import Image from "next/image";
 import DownloadButtons from "./DownloadButtons";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
 
 const Footer = () => {
   return (
@@ -38,13 +41,13 @@ const Footer = () => {
               Company
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-              <Link href="#about" color="inherit" sx={{ textDecoration: "none" }}>
-                About Us
+              <Link href="/team" color="inherit" sx={{ textDecoration: "none" }}>
+                Team
               </Link>
-              <Link href="#careers" color="inherit" sx={{ textDecoration: "none" }}>
+              <Link href="/careers" color="inherit" sx={{ textDecoration: "none" }}>
                 Careers
               </Link>
-              <Link href="#contact" color="inherit" sx={{ textDecoration: "none" }}>
+              <Link href="/contact" color="inherit" sx={{ textDecoration: "none" }}>
                 Contact
               </Link>
             </Box>
@@ -55,23 +58,47 @@ const Footer = () => {
               Legal
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-              <Link href="#privacy" color="inherit" sx={{ textDecoration: "none" }}>
+              <Link href="/privacy" color="inherit" sx={{ textDecoration: "none" }}>
                 Privacy Policy
               </Link>
-              <Link href="#terms" color="inherit" sx={{ textDecoration: "none" }}>
+              <Link href="/terms" color="inherit" sx={{ textDecoration: "none" }}>
                 Terms of Use
               </Link>
-              <Link href="#cookies" color="inherit" sx={{ textDecoration: "none" }}>
+              <Link href="/cookies" color="inherit" sx={{ textDecoration: "none" }}>
                 Cookies
               </Link>
             </Box>
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} sx={{ textAlign: "center" }}>
             <Typography color="#00bf63" variant="h6" gutterBottom>
               Stay Connected
             </Typography>
-            <Typography variant="body1">Subscribe to our newsletter for updates</Typography>
+            <Typography variant="body1" sx={{ mb: 2 }}></Typography>
+
+            <Box sx={{ display: "flex", justifyContent: "center", gap: 3, mt: 2 }}>
+              <IconButton
+                href="https://www.linkedin.com/company/was2eat"
+                target="_blank"
+                sx={{ color: "#0077B5" }}
+              >
+                <LinkedInIcon sx={{ fontSize: 32 }} />
+              </IconButton>
+              <IconButton
+                href="https://www.instagram.com/was2eat"
+                target="_blank"
+                sx={{ color: "#E1306C" }}
+              >
+                <InstagramIcon sx={{ fontSize: 32 }} />
+              </IconButton>
+              <IconButton
+                href="https://twitter.com/was2eat"
+                target="_blank"
+                sx={{ color: "#1DA1F2" }}
+              >
+                <TwitterIcon sx={{ fontSize: 32 }} />
+              </IconButton>
+            </Box>
           </Grid>
         </Grid>
 

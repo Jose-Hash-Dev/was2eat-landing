@@ -4,7 +4,7 @@ import Image from "next/image";
 const DownloadButtons: React.FC = () => {
   return (
     <Box sx={{ display: "flex", gap: 2, mt: 2 }}>
-      <a href="#" target="_blank" rel="noopener noreferrer">
+      <a href="/application" target="" rel="noopener noreferrer">
         <Image
           src="/images/playmarket-download.png"
           alt="Get it on Google Play"
@@ -14,7 +14,7 @@ const DownloadButtons: React.FC = () => {
         />
       </a>
 
-      <a href="#" target="_blank" rel="noopener noreferrer">
+      <a href="/application" target="" rel="noopener noreferrer">
         <Image
           src="/images/appstore-download.svg"
           alt="Download on the App Store"

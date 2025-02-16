@@ -8,21 +8,21 @@ const teamMembers = [
     role: "Co-Founder | Frontend & AI Developer",
     description:
       "Naz is a Master's student in Applied Data Science at the University of Göttingen. Passionate about AI-driven innovation, she focuses on frontend development and AI model implementation for Was2Eat.",
-    image: "/images/naz-demirsoy.jpg",
+    image: "/images/team/naz-demirsoy.jpeg",
   },
   {
     name: "Burak Colak",
     role: "Co-Founder | Backend & AI Engineer",
     description:
       "Burak is a Master's student in Applied Data Science at the University of Göttingen. He specializes in backend development, ensuring secure, scalable infrastructure while optimizing AI functionalities.",
-    image: "/images/burak-colak.jpg",
+    image: "/images/team/burak-colak.jpeg",
   },
   {
     name: "Yusif Hashimov",
     role: "Co-Founder | Frontend & AI Developer",
     description:
       "Yusif is a Master's student in Applied Data Science at the University of Göttingen. He is dedicated to frontend development and AI-powered features, enhancing the user experience at Was2Eat.",
-    image: "/images/yusif-hashimov.jpg",
+    image: "/images/team/yusif-hashimov.png",
   },
 ];
 

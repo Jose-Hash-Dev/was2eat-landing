@@ -1,8 +1,27 @@
-import { Box, Button, Container } from "@mui/material";
+"use client";
+
+import {
+  Box,
+  Button,
+  Container,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 const Navigation = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
   return (
     <Box
       sx={{
@@ -22,7 +41,8 @@ const Navigation = () => {
             py: 1,
           }}
         >
-          <Link href="/">
+          {/* Logo */}
+          <Link href="/" passHref>
             <Image
               src="/images/logo-transparent-with-text.png"
               alt="Company Logo"
@@ -31,22 +51,57 @@ const Navigation = () => {
             />
           </Link>
 
-          <Box sx={{ display: "flex", gap: 3 }}>
-            <Button href="#application" color="inherit">
+          {/* Desktop Navigation */}
+          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3 }}>
+            <Button href="/application" color="inherit">
               Application
             </Button>
             <Link href="/team" passHref>
               <Button color="inherit">Team</Button>
             </Link>
-            <Button href="#careers" color="inherit">
+            <Button href="/careers" color="inherit">
               Careers
             </Button>
-            <Button href="#contact-us" color="inherit">
+            <Button href="/contact" color="inherit">
               Contact Us
             </Button>
           </Box>
+
+          {/* Mobile Menu Button */}
+          <IconButton sx={{ display: { xs: "flex", md: "none" } }} onClick={handleDrawerToggle}>
+            <MenuIcon />
+          </IconButton>
         </Box>
       </Container>
+
+      {/* Mobile Drawer */}
+      <Drawer anchor="right" open={mobileOpen} onClose={handleDrawerToggle}>
+        <List sx={{ width: 250 }}>
+          <Link href="/application" passHref>
+            <ListItem component="a" onClick={handleDrawerToggle}>
+              <ListItemText primary="Application" />
+            </ListItem>
+          </Link>
+
+          <Link href="/team" passHref>
+            <ListItem component="a" onClick={handleDrawerToggle}>
+              <ListItemText primary="Team" />
+            </ListItem>
+          </Link>
+
+          <Link href="/careers" passHref>
+            <ListItem component="a" onClick={handleDrawerToggle}>
+              <ListItemText primary="Careers" />
+            </ListItem>
+          </Link>
+
+          <Link href="/contact" passHref>
+            <ListItem component="a" onClick={handleDrawerToggle}>
+              <ListItemText primary="Contact Us" />
+            </ListItem>
+          </Link>
+        </List>
+      </Drawer>
     </Box>
   );
 };
