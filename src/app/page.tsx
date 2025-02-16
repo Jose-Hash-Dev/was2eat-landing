@@ -1,7 +1,8 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography, Card, CardContent } from "@mui/material";
 import Image from "next/image";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import DownloadButtons from "@/components/DownloadButtons";
 
 export default function HomePage() {
   return (
@@ -27,27 +28,8 @@ export default function HomePage() {
               businesses to make smarter, healthier, and more ethical decisions by turning complex
               food data into actionable insights.
             </Typography>
-            <Box sx={{ display: "flex", gap: 2, mt: 2 }}>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <Image
-                  src="/images/playmarket-download.png"
-                  alt="Get it on Google Play"
-                  width={150}
-                  height={50}
-                  style={{ maxWidth: "100px", height: "auto" }}
-                />
-              </a>
 
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <Image
-                  src="/images/appstore-download.svg"
-                  alt="Download on the App Store"
-                  width={150}
-                  height={50}
-                  style={{ maxWidth: "100px", height: "auto" }}
-                />
-              </a>
-            </Box>
+            <DownloadButtons />
           </Grid>
 
           <Grid
@@ -84,14 +66,14 @@ export default function HomePage() {
           </Grid>
         </Grid>
 
-        <Box sx={{ textAlign: "center", mt: 5, mb: 4 }}>
-          <Typography color="#00bf63" variant="h4" gutterBottom>
+        <Box sx={{ textAlign: "center", mt: 20, mb: 4 }}>
+          <Typography color="#00bf63" variant="h3" gutterBottom>
             Why Was2Eat?
           </Typography>
           <Typography
             variant="h6"
             color="text.secondary"
-            sx={{ mb: 4, fontFamily: "'Pacifico', cursive", fontSize: "1.3rem" }}
+            sx={{ mb: 4, fontFamily: "'Pacifico', cursive" }}
           >
             Designed with your needs in mind
           </Typography>
@@ -101,35 +83,27 @@ export default function HomePage() {
                 title: "Healthier Recommendations",
                 content:
                   "Get AI-powered suggestions for healthier product alternatives based on your scans.",
-                image: "/images/healthy-cat.png",
               },
               {
                 title: "Ask AI Chatbot",
                 content:
                   "Instantly ask our AI chatbot for detailed insights about products and ingredients.",
-                image: "/images/chat-bot-robot.png",
               },
               {
                 title: "Track Your Health Data",
                 content:
                   "Monitor your weekly and monthly consumption trends to improve your diet choices.",
-                image: "/images/track-health-data-cat.png",
               },
             ].map((feature, index) => (
-              <Grid item xs={12} md={4} key={index} sx={{ textAlign: "center" }}>
-                <Image
-                  src={feature.image}
-                  alt={feature.title}
-                  width={150}
-                  height={150}
-                  style={{ marginBottom: "10px" }}
-                />
-
-                <Typography variant="h5" gutterBottom>
-                  {feature.title}
-                </Typography>
-
-                <Typography color="text.secondary">{feature.content}</Typography>
+              <Grid item xs={12} md={4} key={index}>
+                <Card sx={{ height: "100%", boxShadow: 3, borderRadius: 10 }}>
+                  <CardContent sx={{ p: 4 }}>
+                    <Typography variant="h5" gutterBottom>
+                      {feature.title}
+                    </Typography>
+                    <Typography color="text.secondary">{feature.content}</Typography>
+                  </CardContent>
+                </Card>
               </Grid>
             ))}
           </Grid>
