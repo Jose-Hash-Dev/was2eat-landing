@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Typography, Card, CardContent } from "@mui/material";
+import { Box, Container, Grid, Typography, Card, CardContent, Divider } from "@mui/material";
 import Image from "next/image";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
@@ -65,8 +65,9 @@ export default function HomePage() {
             </Box>
           </Grid>
         </Grid>
+        <Divider color="#00bf63" sx={{ my: 6, borderBottomWidth: 1 }} />
 
-        <Box sx={{ textAlign: "center", mt: 20, mb: 4 }}>
+        <Box sx={{ textAlign: "center", mt: 10, mb: 4 }}>
           <Typography color="#00bf63" variant="h3" gutterBottom>
             Why Was2Eat?
           </Typography>
@@ -80,19 +81,34 @@ export default function HomePage() {
           <Grid container spacing={4}>
             {[
               {
-                title: "Healthier Recommendations",
+                title: "Smart AI Search",
                 content:
-                  "Get AI-powered suggestions for healthier product alternatives based on your scans.",
+                  "Simply describe what you're looking for, and our AI will find the best product matches for you. No more endless scrolling—just smart, instant results!",
               },
               {
-                title: "Ask AI Chatbot",
+                title: "Personalized Health Goals",
                 content:
-                  "Instantly ask our AI chatbot for detailed insights about products and ingredients.",
+                  "Define your personal health and nutrition goals, whether it's weight management, muscle gain, or balanced eating. Our AI will guide you toward better choices.",
               },
               {
-                title: "Track Your Health Data",
+                title: "Customized Dietary Preferences",
                 content:
-                  "Monitor your weekly and monthly consumption trends to improve your diet choices.",
+                  "Tailor your food recommendations based on your dietary needs, allergies, and lifestyle choices. Whether vegan, gluten-free, or low-sodium, we've got you covered!",
+              },
+              {
+                title: "Healthier Product Suggestions",
+                content:
+                  "Receive AI-powered recommendations for healthier alternatives based on your dietary needs and preferences. Find better choices effortlessly!",
+              },
+              {
+                title: "Instant AI Food Chatbot",
+                content:
+                  "Get instant answers about ingredients, nutrition facts, and product health scores from our AI chatbot. Your personal food assistant, available anytime!",
+              },
+              {
+                title: "Track & Analyze Your Health Data",
+                content:
+                  "Keep track of your food consumption trends with weekly and monthly reports. Gain insights to improve your eating habits and overall well-being!",
               },
             ].map((feature, index) => (
               <Grid item xs={12} md={4} key={index}>
