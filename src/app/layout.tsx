@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://was2eat.com/images/logo-transparent-with-text.png", // Replace with the actual image URL
+        url: "https://was2eat.com/images/logo-metadata.jpg",
         width: 1200,
         height: 630,
         alt: "Was2Eat App Screenshot",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     site: "@was2eat",
     title: "Was2Eat - Scan, Ask AI, Eat Smarter",
     description: "AI-powered product scanner for healthier eating.",
-    images: ["https://was2eat.com/images/og-image.jpg"],
+    images: ["https://was2eat.com/images/logo-metadata.jpg"],
   },
 };
 
