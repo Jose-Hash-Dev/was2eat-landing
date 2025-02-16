@@ -23,7 +23,12 @@ const Navigation = () => {
           }}
         >
           <Link href="/">
-            <Image src="/images/logo-transparent-with-text.png" alt="Company Logo" width={120} height={70} />
+            <Image
+              src="/images/logo-transparent-with-text.png"
+              alt="Company Logo"
+              width={120}
+              height={70}
+            />
           </Link>
 
           <Box sx={{ display: "flex", gap: 3 }}>
