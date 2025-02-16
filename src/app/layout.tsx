@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Was2Eat",
   description: "Was2Eat",
+  icons: {
+    icon: "/images/logo-transparent-without-text.png",
+  },
 };
 
 export default function RootLayout({
