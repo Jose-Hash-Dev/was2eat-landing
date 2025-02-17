@@ -1,4 +1,4 @@
-import { Box, Container, Typography, IconButton } from "@mui/material";
+import { Box, Container, Typography, IconButton, Divider } from "@mui/material";
 import Image from "next/image";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
@@ -55,20 +55,11 @@ export default function ComingSoon({ pageName }: { pageName: string }) {
           </IconButton>
         </Box>
 
-        <Box
-          sx={{
-            display: "inline-block",
-            bgcolor: "#00bf63",
-            color: "white",
-            px: 3,
-            py: 1,
-            borderRadius: 20,
-            fontSize: "1.4rem",
-            fontWeight: "bold",
-            mt: 2,
-          }}
-        >
-          Stay Connected
+        <Box sx={{ textAlign: "center", mt: 2 }}>
+          <Divider sx={{ width: "80px", bgcolor: "#00bf63", mx: "auto", mb: 1 }} />
+          <Typography variant="h5" color="#00bf63" fontWeight="bold">
+            Stay Connected
+          </Typography>
         </Box>
       </Container>
 
