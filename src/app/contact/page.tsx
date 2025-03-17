@@ -56,12 +56,9 @@ export default function ContactPage() {
                 </Typography>
               </Box>
 
-              <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", mb: 3 }}>
-                <LocationOnIcon sx={{ fontSize: 40, color: "#FF5733", mr: 1 }} />
-                <Typography variant="h6" fontWeight="bold">
-                  Geismar Landstrasse 11, 37083 Göttingen
-                </Typography>
-              </Box>
+              <Box
+                sx={{ display: "flex", alignItems: "center", justifyContent: "center", mb: 3 }}
+              ></Box>
 
               <Typography variant="h6" color="#00bf63" gutterBottom>
                 Follow Us
