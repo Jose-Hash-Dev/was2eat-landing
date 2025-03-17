@@ -24,7 +24,7 @@ export default function ContactPage() {
             <Paper elevation={3} sx={{ borderRadius: "12px", overflow: "hidden", height: "100%" }}>
               <iframe
                 title="Was2Eat Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.167050623477!2d9.941130377008355!3d51.52849580916163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a4d49127932a97%3A0x80bcfef8287e5b05!2sGeismar%20Landstra%C3%9Fe%2011%2C%2037083%20G%C3%B6ttingen!5e0!3m2!1sen!2sde!4v1739737657732!5m2!1sen!2sde"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d79414.48149219992!2d9.844452880106267!3d51.53701537014667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a4d4b86f98cac7%3A0x425ac6d94ac3e30!2sG%C3%B6ttingen!5e0!3m2!1sen!2sde!4v1742201420243!5m2!1sen!2sde"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
