@@ -1,35 +1,65 @@
 import { Box, Container, Grid, Link, Typography, IconButton } from "@mui/material";
 import Image from "next/image";
 import DownloadButtons from "./DownloadButtons";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
 
 const Footer = () => {
   return (
     <Box
       sx={{
-        bgcolor: "background.paper",
+        background: "linear-gradient(45deg, #ffffff 30%, #f0f8f0 90%)",
         boxShadow: 3,
         width: "100%",
-        borderTopLeftRadius: "50px",
-        borderTopRightRadius: "50px",
         mt: 4,
+        position: "relative",
+        borderTopLeftRadius: "20px",
+        borderTopRightRadius: "20px",
+        overflow: "hidden",
       }}
     >
-      <Container sx={{ fontFamily: "'Roboto', 'Arial', sans-serif", py: 6 }} maxWidth="lg">
+      {/* Mascot Image */}
+      <Box
+        sx={{
+          position: "absolute",
+          right: 20,
+          bottom: 0,
+          zIndex: 1,
+        }}
+      >
+        <Image
+          src="/images/mascot/1.png"
+          alt="Was2Eat Mascot"
+          width={360}
+          height={360}
+          style={{ width: "360px", height: "auto" }}
+        />
+      </Box>
+
+      <Container
+        sx={{ fontFamily: "'Roboto', 'Arial', sans-serif", py: 6, position: "relative", zIndex: 2 }}
+        maxWidth="lg"
+      >
         <Grid container spacing={4}>
           <Grid item xs={12} md={4} sx={{ textAlign: "center" }}>
-            <Image
-              src="/images/logo-transparent-with-text.png"
-              alt="Company Logo"
-              width={100}
-              height={100}
-              style={{ height: "auto", width: "120px" }}
-            />
-            <Typography fontFamily="roboto" variant="body1" sx={{ mt: 2 }} color="#00bf63">
-              Scan. Ask AI. Eat Smarter.
-            </Typography>
+            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 2 }}>
+              <Image
+                src="/images/logo.png"
+                alt="Was2Eat Logo"
+                width={50}
+                height={50}
+                style={{ height: "50px", width: "auto" }}
+              />
+              <Typography
+                variant="h5"
+                sx={{
+                  fontFamily: "Kalam, cursive",
+                  fontWeight: 700,
+                  color: "#2c3e50",
+                  fontSize: "2rem",
+                }}
+              >
+                Was2Eat
+              </Typography>
+            </Box>
 
             <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 2 }}>
               <DownloadButtons />
@@ -37,24 +67,42 @@ const Footer = () => {
           </Grid>
 
           <Grid item xs={6} md={2}>
-            <Typography color="#00bf63" variant="h6" gutterBottom>
+            <Typography
+              color="#00bf63"
+              variant="h6"
+              gutterBottom
+              sx={{
+                fontFamily: "Kalam, cursive",
+                fontWeight: 400,
+                fontSize: "1.3rem",
+              }}
+            >
               Company
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-              <Link href="/team" color="inherit" sx={{ textDecoration: "none" }}>
-                Team
-              </Link>
-              <Link href="/careers" color="inherit" sx={{ textDecoration: "none" }}>
-                Careers
+              <Link href="/company" color="inherit" sx={{ textDecoration: "none" }}>
+                Company
               </Link>
               <Link href="/contact" color="inherit" sx={{ textDecoration: "none" }}>
                 Contact
+              </Link>
+              <Link href="/help" color="inherit" sx={{ textDecoration: "none" }}>
+                Help
               </Link>
             </Box>
           </Grid>
 
           <Grid item xs={6} md={2}>
-            <Typography color="#00bf63" variant="h6" gutterBottom>
+            <Typography
+              color="#00bf63"
+              variant="h6"
+              gutterBottom
+              sx={{
+                fontFamily: "Kalam, cursive",
+                fontWeight: 400,
+                fontSize: "1.3rem",
+              }}
+            >
               Legal
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
@@ -64,14 +112,20 @@ const Footer = () => {
               <Link href="/terms" color="inherit" sx={{ textDecoration: "none" }}>
                 Terms of Use
               </Link>
-              <Link href="/cookies" color="inherit" sx={{ textDecoration: "none" }}>
-                Cookies
-              </Link>
             </Box>
           </Grid>
 
           <Grid item xs={12} md={4} sx={{ textAlign: "center" }}>
-            <Typography color="#00bf63" variant="h6" gutterBottom>
+            <Typography
+              color="#00bf63"
+              variant="h6"
+              gutterBottom
+              sx={{
+                fontFamily: "Kalam, cursive",
+                fontWeight: 400,
+                fontSize: "1.3rem",
+              }}
+            >
               Stay Connected
             </Typography>
             <Typography variant="body1" sx={{ mb: 2 }}></Typography>
@@ -80,23 +134,42 @@ const Footer = () => {
               <IconButton
                 href="https://www.linkedin.com/company/was2eat"
                 target="_blank"
-                sx={{ color: "#0077B5" }}
+                sx={{ p: 0 }}
               >
-                <LinkedInIcon sx={{ fontSize: 32 }} />
+                <Image
+                  src="/images/social-media-icons/linkedin.png"
+                  alt="LinkedIn"
+                  width={32}
+                  height={32}
+                  style={{ width: "37px", height: "auto" }}
+                />
               </IconButton>
-              <IconButton
-                href="https://www.instagram.com/was2eat"
-                target="_blank"
-                sx={{ color: "#E1306C" }}
-              >
-                <InstagramIcon sx={{ fontSize: 32 }} />
+              <IconButton href="https://www.instagram.com/was2eat" target="_blank" sx={{ p: 0 }}>
+                <Image
+                  src="/images/social-media-icons/instagram.png"
+                  alt="Instagram"
+                  width={32}
+                  height={32}
+                  style={{ width: "32px", height: "32px" }}
+                />
               </IconButton>
-              <IconButton
-                href="https://twitter.com/was2eat"
-                target="_blank"
-                sx={{ color: "#1DA1F2" }}
-              >
-                <TwitterIcon sx={{ fontSize: 32 }} />
+              <IconButton href="https://www.tiktok.com/@was2eat" target="_blank" sx={{ p: 0 }}>
+                <Image
+                  src="/images/social-media-icons/tiktok.png"
+                  alt="TikTok"
+                  width={32}
+                  height={32}
+                  style={{ width: "32px", height: "32px" }}
+                />
+              </IconButton>
+              <IconButton href="https://www.facebook.com/was2eat" target="_blank" sx={{ p: 0 }}>
+                <Image
+                  src="/images/social-media-icons/facebook.webp"
+                  alt="Facebook"
+                  width={32}
+                  height={32}
+                  style={{ width: "32px", height: "32px" }}
+                />
               </IconButton>
             </Box>
           </Grid>

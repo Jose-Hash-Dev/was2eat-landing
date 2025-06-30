@@ -1,0 +1,1325 @@
+{
+  "common": {
+    "buttons": {
+      "ok": "OK",
+      "next": "Next",
+      "skip": "Skip",
+      "login": "Login",
+      "signup": "Sign Up",
+      "getStarted": "Get Started",
+      "verificationCode": "Send Verification Code!",
+      "sendResetLink": "Send Reset Link",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "success": "Success",
+      "continue": "Continue",
+      "logout": "Log Out",
+      "loading": "Loading",
+      "remove": "Remove"
+    },
+    "loading": "Loading...",
+    "greeting": "Hello, {{name}}! 👋",
+    "termsAndConditions": "terms and conditions",
+    "optional": "(Optional)",
+    "agreeTermsAndconditions": "By signing up you agree to our",
+    "rateLimitCountdown": "Wait {{minutes}}:{{seconds}}",
+    "yes": "Yes",
+    "no": "No",
+    "errors": {
+      "title": "Error",
+      "generic": "Something went wrong. Please try again.",
+      "rateLimitMessage": "Too many failed attempts. Please wait 5 minutes before trying again."
+    }
+  },
+  "onboarding": {
+    "title1": "Scan, Ask AI, Eat Smarter",
+    "title2": "Let's explore the healthy food",
+    "title3": "Make Healthier Food Choices",
+    "title4": "Your Food, Your Way\nStart Now!",
+    "description4": "Join us to explore smarter food choices\nwith every scan."
+  },
+
+  "languageModal": {
+    "selectLanguagePlaceholder": "Select Language",
+    "searchLanguages": "Search Languages"
+  },
+  "countryModal": {
+    "selectcountryPlaceholder": "Select Country",
+    "searchCountries": "Search Countries"
+  },
+  "errors": {
+    "title": "Error",
+    "phoneRequired": "Phone number is required",
+    "phoneTooShort": "Phone number is too short",
+    "fullNameError": "Please enter your full name",
+    "countryError": "Please select a country",
+    "languageError": "Please select a language",
+    "emailError": "Please enter a valid email",
+    "passwordError": "Password needs 8+ characters with uppercase, lowercase, number & symbol",
+    "passwordRequirements": {
+      "minLength": "At least 8 characters",
+      "lowercase": "Includes lowercase letter",
+      "uppercase": "Includes uppercase letter",
+      "number": "Includes number",
+      "symbol": "Includes symbol"
+    },
+    "languageNotSupported": "Language Not Supported",
+    "tryDifferentLanguage": "This language is not yet supported. Please try a different language.",
+    "languageChangeFailed": "Failed to change language. Please try again."
+  },
+  "loginScreen": {
+    "title": "Login",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "invalidCredentials": "Email or password is incorrect",
+    "signUp": "Sign Up",
+    "or": "OR"
+  },
+  "signupScreen": {
+    "title": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "phone": "Phone",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "emailPlaceholder": "Enter your email",
+    "phonePlaceholder": "Enter your phone number",
+    "passwordPlaceholder": "Create a password",
+    "successMessage": "Please check your email to complete your account setup.",
+    "orText": "or",
+    "hasAccount": "Already have an account?",
+    "emailAlreadyRegistered": "Email is already registered",
+    "googleAccountExists": "This Google account is already registered. Please use the Login screen to sign in."
+  },
+  "forgotPasswordScreen": {
+    "title": "Forgot Password",
+    "returntoLogin": "Return To Login",
+    "emailLabel": "Email",
+    "emailHelperDescription": "Please enter your registered email address",
+    "emailPlaceholder": "Enter your email",
+    "description": "Enter your email address. We will send you a secure link to reset your password.",
+    "emailSentTitle": "Reset Link Sent",
+    "emailSentMessage": "If your email is registered, you will receive a secure link to reset your password. Please check your email and click the link to continue."
+  },
+  "scannerScreen": {
+    "title": "Scan",
+    "description": "Point your camera at a barcode to discover what's inside your food",
+    "cameraPermissionTitle": "Camera Access Required",
+    "cameraPermissionDescription": "To scan barcodes and identify food products, we need access to your camera. Your privacy is important to us - we only use the camera for scanning and don't store any images.",
+    "allowCameraAccess": "Allow Camera Access",
+    "productNotFound": "Product Not Found",
+    "productAddedToComparison": "Product Added to Comparison",
+    "productAlreadyInComparison": "Product Already in Comparison",
+    "flashOn": "Flash On",
+    "flashOff": "Flash Off",
+    "flipCamera": "Flip Camera",
+    "viewDetails": "View Details",
+    "dismiss": "Dismiss",
+    "nutriScore": "Nutri Score:",
+    "healthScore": "Health Score:",
+    "good": "Good",
+    "notAvailable": "N/A Not Available",
+    "enableComparison": "Enable Comparison Mode",
+    "comparisonMode": "Comparison Mode",
+    "addToComparison": "Add to Comparison",
+    "alreadySelected": "Already Selected",
+    "selectedProducts": "Selected Products",
+    "compareProducts": "Compare Products",
+    "exitComparison": "Exit Comparison Mode",
+    "scanToAdd": "Scan to Add",
+    "scanProductsToCompare": "Scan products to compare",
+    "productComparison": "Product Comparison",
+    "active": "Deactivate",
+    "inactive": "Activate",
+    "scanToCompareProducts": "Scan products to add them for comparison",
+    "enableToCompareProducts": "Enable comparison mode to start comparing products",
+    "scanProduct": "Scan Product",
+    "enableFirst": "Enable comparison first",
+    "compareNow": "Compare Now",
+    "tabs": {
+      "compare": "Compare",
+      "basket": "Basket"
+    },
+    "compareButton": "Compare",
+    "basketButton": "Basket",
+    "swipeUpForDetails": "Swipe up for more details"
+  },
+  "basket": {
+    "title": "Shopping Basket",
+    "description": "Save products to your basket and track them in your health tracker",
+    "error": "Error",
+    "nameRequired": "Please enter a basket name",
+    "productExists": "Product Already Added",
+    "productExistsMessage": "This product is already in your basket",
+    "createNew": "Create New Basket",
+    "startShopping": "Create Basket",
+    "enterName": "Enter basket name",
+    "create": "Create",
+    "createBasket": "Create Your Basket",
+    "currentBasket": "Current Basket",
+    "items": "items",
+    "scannedProducts": "Scanned Products",
+    "scanToAdd": "Scan to add",
+    "scanProduct": "Scan a product",
+    "deleteBasket": "Delete Basket",
+    "deleteConfirmation": "Are you sure you want to delete this basket? All products will be removed.",
+    "deleteError": "Failed to delete basket",
+    "basketName": "Basket Name",
+    "nameHelper": "Leave empty to use today's date",
+    "noBrand": "N/A",
+    "added": "added",
+    "removeProduct": "Remove Product",
+    "removeConfirmation": "Are you sure you want to remove this product from your basket?",
+    "item": "item",
+    "confirmBasket": "Confirm Basket",
+    "confirming": "Confirming...",
+    "confirmHelper": "Save all products to Health Tracker",
+    "confirmed": "Basket Confirmed",
+    "confirmedMessage": "Your shopping has been saved to Health Tracker",
+    "confirmError": "Failed to confirm basket",
+    "confirm": "Confirm",
+    "confirmBasketMessage": "This will save all products to your Health Tracker and clear the basket. Continue?",
+    "noScannedProducts": "No Products Scanned",
+    "scanFirstMessage": "Scan a product first to create a basket"
+  },
+  "basketFloatingPanel": {
+    "productExists": {
+      "title": "Product Already Added",
+      "message": "This product is already in your basket."
+    },
+    "productAdded": {
+      "title": "Added to Basket",
+      "message": "Product has been added to your basket."
+    },
+    "addError": "Failed to add product to basket.",
+    "viewBasket": "View",
+    "noBasket": {
+      "title": "No Basket Created",
+      "message": "Please create a basket first to add products."
+    }
+  },
+  "historyScreen": {
+    "title": "History",
+    "confirmDeleteInfo": "The products you delete will be deleted within 30 days",
+    "noHistory": "No scan history",
+    "noHistorySubtext": "Scan products to see them here",
+    "noMatchingProducts": "No products match your filter",
+    "noMatchingProductsSubtext": "Try a different filter"
+  },
+  "searchScreen": {
+    "title": "Search",
+    "noProductsFound": "No products found",
+    "searchPlaceholder": "Search products"
+  },
+  "filterScreen": {
+    "title": "Filter",
+    "clearAll": "Clear All",
+    "nutriScoreText": {
+      "title": "Nutri Score",
+      "veryGood": "Very Good",
+      "good": "Good",
+      "average": "Average",
+      "poor": "Poor",
+      "veryPoor": "Very Poor"
+    },
+    "healthScoreText": {
+      "title": "Health Score",
+      "excellent": "Excellent",
+      "veryGood": "Very Good",
+      "good": "Good",
+      "average": "Average",
+      "poor": "Poor",
+      "veryPoor": "Very Poor"
+    },
+    "productCategoriesText": {
+      "title": "Product Categories",
+      "dairyProducts": "Dairy Products",
+      "meatProducts": "Meat Products",
+      "grainsAndCereals": "Grains & Cereals",
+      "beverages": "Beverages",
+      "sweetsAndDesserts": "Sweets & Desserts"
+    },
+    "allergens": {
+      "title": "Allergens",
+      "vegetarian": "Vegetarian",
+      "vegan": "Vegan",
+      "glutenFree": "Gluten Free",
+      "lactoseFree": "Lactose Free"
+    }
+  },
+  "sortScreen": {
+    "title": "Sort By",
+    "nutriScore": {
+      "title": "Nutri Score",
+      "bestToWorst": "Best to Worse (A → E)",
+      "worstToBest": "Worse to Best (E → A)"
+    },
+    "healthScore": {
+      "title": "Health Score",
+      "highToLow": "Highest to Lowest (100 → 0)",
+      "lowToHigh": "Lowest to Highest (0 → 100)"
+    },
+    "dateScanned": {
+      "title": "Date Scanned",
+      "mostRecent": "Most Recent",
+      "oldest": "Oldest"
+    }
+  },
+  "historyInfoScreen": {
+    "title": "About Scan History",
+    "sections": {
+      "recorded": {
+        "title": "What's Recorded?",
+        "items": [
+          "All products you've scanned in the last 30 days",
+          "Date/time of each scan.",
+          "Nutri-Score and Health Score at time of scanning."
+        ]
+      },
+      "usage": {
+        "title": "Data Usage",
+        "items": [
+          "Personalizes recommendations.",
+          "Tracks your nutrition trends.",
+          "Never shared with third parties."
+        ]
+      },
+      "important": {
+        "title": "Important Information",
+        "items": [
+          "Auto-deletes after 60 days.",
+          "Disable in Settings if preferred"
+        ]
+      }
+    }
+  },
+  "favoritesInfoScreen": {
+    "title": "About Favorites",
+    "sections": {
+      "saved": {
+        "title": "What's Saved?",
+        "items": [
+          "Products you've marked as favorites by tapping the heart icon",
+          "All nutritional data and scores at time of saving",
+          "Your personal collection for quick access and comparison"
+        ]
+      },
+      "usage": {
+        "title": "How to Use",
+        "items": [
+          "Compare your favorite products side-by-side",
+          "Quick access to products you buy regularly",
+          "Build shopping lists from your saved items"
+        ]
+      },
+      "management": {
+        "title": "Managing Favorites",
+        "items": [
+          "Remove items by selecting and deleting",
+          "Favorites are stored locally on your device",
+          "No limit on number of favorites you can save"
+        ]
+      }
+    }
+  },
+  "aboutScreen": {
+    "title": "About Was2Eat",
+    "sections": {
+      "mission": {
+        "title": "Our Mission",
+        "items": [
+          "Empower you to make informed, healthier food choices with every scan.",
+          "Provide instant, science-backed nutrition insights through cutting-edge AI technology.",
+          "Transform complex food data into clear, actionable health guidance.",
+          "Promote better eating habits through comprehensive product analysis and health tracking."
+        ]
+      },
+      "howItWorks": {
+        "title": "How Was2Eat Works",
+        "items": [
+          "Scan any food barcode to instantly access comprehensive nutrition analysis from our OpenFoodFacts database.",
+          "Get dual scoring with official Nutri-Score (A-E rating) plus our proprietary AI-enhanced Health Score (0-100).",
+          "Receive detailed additive safety analysis using official EFSA data combined with AI assessment.",
+          "Compare products side-by-side to find healthier alternatives that match your dietary preferences.",
+          "Track your daily nutrition intake with our advanced Health Tracker and see your progress over time.",
+          "Build shopping baskets and save products to favorites for easy reference and better meal planning."
+        ]
+      },
+      "keyFeatures": {
+        "title": "Key Features",
+        "items": [
+          "Real-time barcode scanning with instant product recognition and analysis.",
+          "AI-powered additive safety evaluation using European Food Safety Authority (EFSA) guidelines.",
+          "Comprehensive nutrition breakdown including proteins, fats, carbohydrates, fiber, and energy content.",
+          "Smart product comparison tools with visual charts and detailed nutritional breakdowns.",
+          "Health Tracker with daily, weekly, and monthly nutrition monitoring and goal tracking.",
+          "Shopping Basket feature to save and organize products for better meal planning.",
+          "Personalized favorites list and scan history for quick product access.",
+          "Multilingual support (English, German, French, Turkish) with easy language switching.",
+          "Offline-ready favorites list for shopping without internet connection.",
+          "Advanced filtering and sorting options for better product discovery."
+        ]
+      },
+      "dataTransparency": {
+        "title": "Data Sources & Accuracy",
+        "items": [
+          "Product information sourced from OpenFoodFacts, the world's largest collaborative food database.",
+          "Additive safety data directly from EFSA (European Food Safety Authority) official assessments.",
+          "AI enhancement fills gaps in official data using established regulatory patterns and scientific literature.",
+          "All AI-generated content is clearly labeled and distinguished from official regulatory data.",
+          "Regular database updates ensure you get the most current product information available.",
+          "Continuous algorithm improvements based on user feedback and new scientific research."
+        ]
+      },
+      "privacy": {
+        "title": "Your Privacy Matters",
+        "items": [
+          "Your data is never sold, shared, or used for advertising purposes.",
+          "Account creation is optional - you can use core scanning features without signing up.",
+          "Complete control over your data with easy deletion options in account settings.",
+          "Health tracking data is stored securely and only accessible to you.",
+          "No tracking of personal eating habits or dietary patterns without explicit consent.",
+          "GDPR compliant with full transparency about data collection and use."
+        ]
+      },
+      "technology": {
+        "title": "Powered by AI",
+        "items": [
+          "Advanced machine learning algorithms analyze additive interactions and health impacts.",
+          "Proprietary health scoring system combining nutrition, additives, and processing levels.",
+          "Natural language processing converts complex regulatory data into easy-to-understand summaries.",
+          "Continuous learning from global food safety databases improves accuracy over time.",
+          "Transparent AI labeling ensures you always know when content is AI-enhanced vs. official data.",
+          "Real-time nutrition calculations and personalized health recommendations."
+        ]
+      }
+    }
+  },
+
+  "helpCenterScreen": {
+    "title": "Help Center",
+    "sections": {
+      "gettingStarted": {
+        "title": "Getting Started",
+        "items": [
+          "Download Was2Eat from your app store (iOS or Android)",
+          "No account required - start scanning immediately after installation",
+          "Allow camera permissions for barcode scanning functionality",
+          "Optional: Create an account with email or Google for cloud sync",
+          "Start scanning products to see instant nutrition analysis and health scores"
+        ]
+      },
+      "scanning": {
+        "title": "Scanning and Analysis",
+        "items": [
+          "Point your camera at any product barcode and hold steady",
+          "Ensure good lighting for accurate barcode recognition",
+          "View dual scoring: Official Nutri-Score (A-E) and AI Health Score (0-100)",
+          "Get detailed nutrition breakdown including additives and allergens",
+          "Save products to favorites for quick access during shopping",
+          "Use the comparison mode to compare multiple products side-by-side",
+          "Add products to your shopping basket for meal planning"
+        ]
+      },
+      "healthTracker": {
+        "title": "Health Tracker",
+        "items": [
+          "Track your daily nutrition intake by marking products as consumed",
+          "Monitor calories, proteins, carbs, fats, fiber, and other nutrients",
+          "View progress with daily, weekly, and monthly analytics",
+          "Set nutrition goals and track your progress over time",
+          "Visualize your data with interactive charts and graphs",
+          "Get insights into your eating patterns and nutrition trends"
+        ]
+      },
+      "features": {
+        "title": "Key Features Explained",
+        "items": [
+          "Health Score: Our AI algorithm evaluates nutrition, additives, and processing levels",
+          "Additive Safety: Get clear warnings about potentially harmful food additives",
+          "Product Comparison: Compare up to multiple products to find the healthiest option",
+          "Shopping Baskets: Organize products for meal planning and grocery shopping",
+          "Favorites: Save frequently purchased products for quick access",
+          "History: View your recent scans and track your product discovery journey",
+          "Filters: Sort products by health score, nutrients, or dietary preferences"
+        ]
+      },
+      "troubleshooting": {
+        "title": "Troubleshooting",
+        "items": [
+          "If barcode won't scan: Clean your camera lens and ensure good lighting",
+          "For scanning issues: Try different angles or manual barcode entry",
+          "If product not found: Some products may not be in our database yet",
+          "For app crashes: Restart the app and ensure you have the latest version",
+          "Connection issues: Check your internet connection for real-time data",
+          "Performance issues: Close other apps and restart Was2Eat",
+          "Contact us at info@was2eat.com for persistent technical problems"
+        ]
+      },
+      "account": {
+        "title": "Account and Data Management",
+        "items": [
+          "Account creation is optional - use core features without signing up",
+          "Create account to sync data across devices and access cloud features",
+          "Update your profile information and preferences in Settings",
+          "View and manage your scanning history and favorites",
+          "Change language settings (English, German, French, Turkish)",
+          "Export your data by contacting info@was2eat.com",
+          "Delete your account and all data through Settings if needed"
+        ]
+      },
+      "privacy": {
+        "title": "Privacy and Data",
+        "items": [
+          "Your scanning data is private and never sold to third parties",
+          "Health tracking data is stored securely and only accessible to you",
+          "We follow GDPR guidelines for all data collection and processing",
+          "Camera is only used for scanning - no images are stored",
+          "You can delete all your data at any time through account settings"
+        ]
+      },
+      "support": {
+        "title": "Getting Help and Support",
+        "items": [
+          "Check this Help Center for answers to common questions",
+          "Contact our support team at info@was2eat.com",
+          "Report bugs or suggest new features through the app",
+          "Follow us on social media for app updates and nutrition tips",
+          "Join our community to share experiences and get advice",
+          "Rate and review the app to help us improve"
+        ]
+      }
+    }
+  },
+  "supportScreen": {
+    "title": "Contact Support",
+    "subjectLabel": "Subject",
+    "subjectPlaceholder": "What do you need help with?",
+    "messageLabel": "Your Message",
+    "messagePlaceholder": "Please describe your issue or question in detail...",
+    "sendButton": "Send Message",
+    "orDirectEmail": "Or email us directly at",
+    "errors": {
+      "title": "Error",
+      "missingSubject": "Please enter a subject",
+      "missingMessage": "Please enter your message",
+      "cannotOpenEmail": "Could not open email client. Please email us directly."
+    },
+    "success": {
+      "title": "Success",
+      "message": "Your support request has been sent successfully. We'll get back to you as soon as possible."
+    }
+  },
+  "productDetailsScreen": {
+    "title": "Product Details",
+    "nutriScore": "Nutri Score",
+    "healthScore": "Health Score",
+    "positives": "Positives",
+    "negatives": "Negatives",
+    "notAvailable": "Not available",
+    "nutriScoreDescriptions": {
+      "good": "Good",
+      "average": "Average",
+      "bad": "Bad",
+      "na": "N/A"
+    },
+    "attributes": {
+      "protein": "Protein",
+      "energy": "Energy",
+      "netCalories": "Net calories",
+      "fat": "Fat",
+      "saturatedFat": "Saturated Fat",
+      "sugar": "Sugar",
+      "carbs": "Carbs",
+      "salt": "Salt",
+      "additives": {
+        "title": "Additives",
+        "viewOptions": {
+          "tapToView": "Tap to View",
+          "tapToHide": "Tap To hide"
+        }
+      }
+    },
+    "qualityLabels": {
+      "highProtein": "High Protein",
+      "someCalories": "Some Calories",
+      "moderatelyHigh": "Moderately High",
+      "addedCarbohydrates": "Added Carbohydrates"
+    },
+    "viewAdditives": "Tap to view",
+    "perServing": "per serving (100g)",
+    "aiSummary": {
+      "title": "AI Summary"
+    },
+    "chart": {
+      "title": "Nutri Score Statistics",
+      "chartViewText": "Chart View",
+      "nutrientBreakdown": {
+        "protein": "Protein",
+        "fat": "Fat",
+        "energy": "Energy",
+        "carbs": "Carbs"
+      },
+      "chartTypes": {
+        "pieChart": "Pie Chart",
+        "barGraph": "Bar Graph"
+      }
+    },
+    "additionalInformation": {
+      "title": "More Info",
+      "dietary": {
+        "vegetarian": "Vegetarian",
+        "vegan": "Vegan",
+        "glutenFree": "Gluten Free",
+        "lactoseFree": "Lactose Free",
+        "palmOil": "Contains Palm Oil"
+      },
+      "additives": {
+        "title": "Additives",
+        "tapToView": "Tap to view additive names",
+        "tapToHide": "Tap to hide additive names",
+        "highRisk": "High Risk",
+        "mediumRisk": "Medium Risk",
+        "lowRisk": "Low Risk",
+        "viewDetailed": "View Detailed Information"
+      }
+    },
+    "moreInfo": {
+      "title": "More Information",
+      "dietary": {
+        "title": "Dietary Information",
+        "noInfo": "No dietary information available",
+        "vegetarian": "Vegetarian",
+        "vegan": "Vegan",
+        "glutenFree": "Gluten Free",
+        "lactoseFree": "Lactose Free",
+        "palmOil": "Contains Palm Oil"
+      },
+      "nova": {
+        "title": "Food Processing Level",
+        "notAvailable": "Processing level not available",
+        "groupLabel": "Group {{group}}: {{description}}",
+        "classificationTitle": "NOVA Classification:",
+        "group1": "Unprocessed or minimally processed foods",
+        "group2": "Processed culinary ingredients",
+        "group3": "Processed foods",
+        "group4": "Ultra-processed foods",
+        "unknown": "Processing level unknown",
+        "classification": {
+          "group1": "• Group 1: Unprocessed/Minimally processed",
+          "group2": "• Group 2: Processed culinary ingredients",
+          "group3": "• Group 3: Processed foods",
+          "group4": "• Group 4: Ultra-processed foods"
+        }
+      },
+      "emptyTitle": "No additional information",
+      "emptySubtitle": "This product has no additional dietary, processing, or certification information available."
+    },
+    "addedToBasket": "Added to Basket",
+    "addedToBasketMessage": "Product has been added to your basket",
+    "addToBasketError": "Failed to add product to basket",
+    "adding": "Adding...",
+    "updateAmount": "Update Amount",
+    "confirmUpdate": "Are you sure you want to update the quantity to {quantity}?",
+    "selectQuantity": "Select Quantity",
+    "removedFromBasket": "Removed from Basket",
+    "removedFromBasketMessage": "Product has been removed from your basket",
+    "error": "Error",
+    "createBasketRequired": "Create Basket First",
+    "createBasketMessage": "You need to create a shopping basket first before adding products. Please go to the Scanner screen and tap the Basket button to create one."
+  },
+  "chatBot": {
+    "title": "Chat with Was AI",
+    "askAQuestion": "Ask a question",
+    "thinking": "Thinking...",
+    "buttonText": "Was AI"
+  },
+  "navigation": {
+    "scan": "Scan",
+    "search": "Search",
+    "history": "History",
+    "health": "Health",
+    "profile": "Profile"
+  },
+  "deleteAccountModal": {
+    "title": "Delete Account",
+    "message": "Are you sure you want to delete your account? This action cannot be undone."
+  },
+  "logoutModal": {
+    "title": "Log Out",
+    "message": "Are you sure you want to log out?"
+  },
+  "languageScreen": {
+    "title": "Language",
+    "subtitle": "Select your preferred language",
+    "success": "Language Changed",
+    "languageChanged": "Your language preference has been updated successfully."
+  },
+  "favoritesScreen": {
+    "title": "Favorites",
+    "confirmDeleteInfo": "Are you sure you want to delete the selected products?",
+    "noFavorites": "No favorite products",
+    "noFavoritesSubtext": "Add products to your favorites to see them here",
+    "noMatchingProducts": "No products match your filter",
+    "noMatchingProductsSubtext": "Try a different filter",
+    "remove": "Remove",
+    "loginRequired": "Please login to view your favorites",
+    "gridView": "Grid",
+    "listView": "List"
+  },
+  "applicationSettings": {
+    "language": "Language",
+    "informationHelp": "Information & Help",
+    "helpCenter": "Help Center",
+    "support": "Support",
+    "about": "About",
+    "termsAndConditions": "Terms and Conditions",
+    "privacyPolicy": "Privacy Policy",
+    "appInformation": "App Information",
+    "community": "Community",
+    "followUs": "Follow us",
+    "logOut": "Log Out",
+    "deleteAccount": "Delete Account"
+  },
+  "comparisonScreen": {
+    "title": "Product Comparison",
+    "dietary": "Dietary",
+    "additives": "Additives",
+    "allergens": "Allergens",
+    "foodComposition": "Food Composition",
+    "dietaryInformation": "Dietary Information",
+    "foodProcessing": "Food Processing",
+    "moreInformation": "More Information",
+    "none": "None",
+    "vs": "vs",
+    "cancel": "Cancel",
+    "healthScore": "Health Score",
+    "updateProducts": "Update",
+    "nutritionTitle": "Nutrition",
+    "nutrition": {
+      "energy": "Energy",
+      "protein": "Protein",
+      "carbs": "Carbs",
+      "fat": "Fat",
+      "saturatedFat": "Saturated Fat",
+      "sugar": "Sugar",
+      "fiber": "Fiber"
+    },
+    "labels": {
+      "vegetarian": "Veg",
+      "vegan": "Vegan",
+      "glutenFree": "GF",
+      "lactoseFree": "LF",
+      "palmOil": "Palm Oil"
+    },
+    "nova": {
+      "group1": "Unprocessed or minimally processed foods",
+      "group2": "Processed culinary ingredients",
+      "group3": "Processed foods",
+      "group4": "Ultra-processed foods",
+      "unknown": "Processing level unknown",
+      "groupLabel": "Group {{group}}"
+    },
+    "productComparison": "Product Comparison",
+    "active": "Deactivate",
+    "inactive": "Activate",
+    "scanToCompareProducts": "Scan products to add them for comparison",
+    "enableToCompareProducts": "Enable comparison mode to start comparing products",
+    "scanProduct": "Scan Product",
+    "enableFirst": "Enable comparison first",
+    "compareNow": "Compare Now"
+  },
+  "passwordResetScreen": {
+    "title": "Reset Password",
+    "subtitle": "Create a new secure password for your account",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "passwordPlaceholder": "Enter password",
+    "confirmPasswordPlaceholder": "Enter password again",
+    "passwordRequirementsMet": "Password requirements met",
+    "passwordsMatch": "Passwords match",
+    "setPasswordButton": "Set Password",
+    "returnToLogin": "Return to Login",
+    "successTitle": "Password Reset Successful",
+    "successMessage": "Your password has been successfully updated. You can now log in with your new password."
+  },
+  "successScreen": {
+    "congrats": "Congrats!",
+    "message": "Your password changed successfully",
+    "returnToLogin": "Return to Login"
+  },
+  "resetCodeScreen": {
+    "title": "Reset Code",
+    "returnToLogin": "Return to login",
+    "description": "We sent a 6-digit code to {{email}}",
+    "didntGetCode": "Didn't get code?",
+    "resend": "Resend",
+    "confirm": "Confirm",
+    "successTitle": "Code Sent",
+    "successMessage": "Verification code has been resent to your email"
+  },
+  "profileInfoScreen": {
+    "title": "Personal info",
+    "edit": "Edit",
+    "save": "Save",
+    "add": "Add",
+    "fullName": "Full Name",
+    "phone": "Phone Number",
+    "email": "Email",
+    "country": "Country",
+    "selectCountry": "Select your country",
+    "addFullName": "Add full name",
+    "addPhone": "Add phone number",
+    "userInfo": "User Information",
+    "personalDetails": "Personal Details",
+    "editDetails": "Edit Details"
+  },
+  "accountScreen": {
+    "title": "Settings"
+  },
+  "profileSection": {
+    "promoText": "Join our contribution program and use application for free",
+    "personalInfo": "Personal Information",
+    "login": "Login",
+    "noName": "Guest User",
+    "ratingInfo": {
+      "title": "Rating Information",
+      "message": "This rating is for testing purposes only. We are not calculating user ratings yet."
+    }
+  },
+  "notificationScreen": {
+    "title": "Notification Screen"
+  },
+  "customModal": {
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close"
+  },
+  "filter": {
+    "title": "Filter",
+    "clearAll": "Clear All"
+  },
+  "additiveTransparency": {
+    "viewOfficialEFSAData": "View Official EFSA Data"
+  },
+  "dataConsistency": {
+    "title": "Data Consistency Checker",
+    "batchTitle": "Batch Validation Report",
+    "totalProducts": "Total Products",
+    "consistent": "Consistent",
+    "inconsistent": "Inconsistent",
+    "batchReport": "Batch Report"
+  },
+  "editProfile": {
+    "nameLabel": "First Name",
+    "surnameLabel": "Last Name",
+    "phoneLabel": "Phone Number",
+    "saveButton": "Save",
+    "editDetails": "Edit Details",
+    "errors": {
+      "title": "Error",
+      "emptyField": "This field cannot be empty",
+      "invalidPhone": "Please enter a valid phone number",
+      "userNotFound": "User not found",
+      "updateFailed": "Failed to update profile"
+    }
+  },
+  "termsAndConditionsScreen": {
+    "title": "Terms and Conditions",
+    "sections": {
+      "introduction": {
+        "title": "1. Introduction and Acceptance",
+        "items": [
+          "Welcome to Was2Eat, a mobile application that provides food nutrition analysis, additive safety information, and health guidance through barcode scanning technology.",
+          "These Terms and Conditions ('Terms') govern your use of the Was2Eat mobile application ('App', 'Service') operated by Was2Eat ('we', 'us', 'our').",
+          "By downloading, installing, or using Was2Eat, you agree to be bound by these Terms.",
+          "If you do not agree to these Terms, please do not use our App.",
+          "We may update these Terms periodically, and continued use constitutes acceptance of any changes.",
+          "You must be at least 13 years old to use Was2Eat, or have parental consent if younger."
+        ]
+      },
+      "services": {
+        "title": "2. Description of Services",
+        "items": [
+          "Was2Eat provides food product analysis by scanning barcodes and retrieving data from OpenFoodFacts and other public food databases.",
+          "Our App offers nutrition information, additive safety assessments, and personalized health recommendations.",
+          "We use artificial intelligence and machine learning to provide health scores and dietary guidance.",
+          "Product information is sourced from third-party databases and may not always be complete or current.",
+          "Was2Eat is for informational purposes only and should not replace professional medical or nutritional advice.",
+          "We continuously work to improve our database and analysis accuracy."
+        ]
+      },
+      "userResponsibilities": {
+        "title": "3. User Responsibilities and Acceptable Use",
+        "items": [
+          "You are responsible for maintaining the confidentiality of your account credentials.",
+          "You must provide accurate information when creating your account.",
+          "You may use Was2Eat only for lawful purposes and in accordance with these Terms.",
+          "You agree not to misuse our services, attempt to hack our systems, or interfere with other users.",
+          "You may not use automated systems to access our App without permission.",
+          "Commercial use of our data or services requires separate written permission from Was2Eat."
+        ]
+      },
+      "intellectualProperty": {
+        "title": "4. Intellectual Property Rights",
+        "items": [
+          "The Was2Eat App, including its design, algorithms, AI models, and proprietary health scoring system, is owned by Was2Eat and protected by intellectual property laws.",
+          "You may not copy, modify, distribute, or reverse engineer any part of our App.",
+          "Product data from third-party sources remains subject to their respective licenses.",
+          "You retain ownership of any personal data you provide to us.",
+          "Our trademarks, logos, and brand elements may not be used without permission.",
+          "We respect intellectual property rights and expect users to do the same."
+        ]
+      },
+      "privacy": {
+        "title": "5. Privacy and Data Protection",
+        "items": [
+          "Your privacy is important to us. Please review our Privacy Policy for details on data collection and use.",
+          "We collect minimal personal information necessary to provide our services.",
+          "Your scanning history and preferences are stored securely and used to improve your experience.",
+          "We do not sell your personal data to third parties.",
+          "You have rights to access, correct, delete, or export your personal data. Contact us at info@was2eat.com for data requests.",
+          "We implement appropriate security measures to protect your information."
+        ]
+      },
+      "disclaimers": {
+        "title": "6. Disclaimers and Limitations",
+        "items": [
+          "Was2Eat is provided 'as is' without warranties of any kind, express or implied, including accuracy, completeness, or fitness for a particular purpose.",
+          "We do not guarantee that product information is always current, complete, or error-free.",
+          "Health recommendations are general guidance and should not replace professional medical advice.",
+          "We are not liable for decisions made based on information provided by our App.",
+          "Our liability is limited to the maximum extent permitted by law.",
+          "We disclaim responsibility for third-party content and external links."
+        ]
+      },
+      "termination": {
+        "title": "7. Account Termination",
+        "items": [
+          "You may delete your account at any time through the App settings.",
+          "We may suspend or terminate accounts that violate these Terms.",
+          "Upon termination, your access to the App will cease, but these Terms remain in effect for applicable provisions.",
+          "We will retain some information as required by law or for legitimate business purposes.",
+          "Termination does not affect any rights or obligations that arose before termination."
+        ]
+      },
+      "governing": {
+        "title": "8. Governing Law and Jurisdiction",
+        "items": [
+          "These Terms are governed by the laws of Estonia, without regard to conflict of law principles.",
+          "Any disputes arising from these Terms or use of Was2Eat will be resolved in Estonian courts.",
+          "If any provision of these Terms is found invalid, the remaining provisions continue in effect.",
+          "These Terms constitute the entire agreement between you and Was2Eat regarding use of our App."
+        ]
+      },
+      "changes": {
+        "title": "9. Changes to Terms",
+        "items": [
+          "We reserve the right to modify these Terms at any time.",
+          "Significant changes to these Terms will be communicated through the App or via email with at least 30 days advance notice.",
+          "Your continued use of Was2Eat after changes constitutes acceptance of the new Terms.",
+          "We encourage you to review these Terms periodically."
+        ]
+      },
+      "contact": {
+        "title": "10. Contact Information and Support",
+        "items": [
+          "For questions about these Terms, contact us at info@was2eat.com or through the App's support section.",
+          "For privacy-related inquiries or data requests, contact info@was2eat.com.",
+          "For technical support or app issues, use the Help Center within the App or contact info@was2eat.com.",
+          "Mailing address: Sepapaja tn 6, 15551 Tallinn, Harju Maakond, Estonia",
+          "We aim to respond to all inquiries within 48 hours during business days."
+        ]
+      }
+    }
+  },
+  "privacyPolicyScreen": {
+    "title": "Privacy Policy",
+    "sections": {
+      "introduction": {
+        "title": "1. Introduction and Data Controller",
+        "items": [
+          "This Privacy Policy explains how Was2Eat ('we', 'us', 'our') collects, uses, and protects your personal information.",
+          "Was2Eat is the data controller for personal information collected through our mobile application.",
+          "This policy applies to all users of the Was2Eat mobile application.",
+          "By using our App, you consent to the collection and use of information as described in this policy.",
+          "We are committed to protecting your privacy and handling your data responsibly.",
+          "Contact us at info@was2eat.com for any privacy-related questions."
+        ]
+      },
+      "dataCollection": {
+        "title": "2. Information We Collect",
+        "items": [
+          "Account information: Email, name, and profile details when you create an account",
+          "Usage data: Products scanned, search queries, and app interaction patterns",
+          "Device information: Device type, operating system, and app version for technical support",
+          "Location data: Only if you grant permission, used for regional product recommendations",
+          "Camera access: Only for barcode scanning functionality, images are not stored",
+          "We do not collect sensitive health data or detailed personal dietary information"
+        ]
+      },
+      "dataUse": {
+        "title": "3. How We Use Your Information",
+        "items": [
+          "Provide personalized nutrition analysis and health recommendations",
+          "Improve our product database and recommendation algorithms",
+          "Send important updates about the App and your account",
+          "Provide customer support and respond to your inquiries",
+          "Analyze usage patterns to enhance user experience and app performance",
+          "Comply with legal obligations and protect our rights and users' safety"
+        ]
+      },
+      "dataSharing": {
+        "title": "4. Information Sharing and Disclosure",
+        "items": [
+          "We do not sell, rent, or trade your personal information to third parties",
+          "We may share anonymized, aggregated data for research and improvement purposes",
+          "We use trusted service providers who help us operate our App under strict confidentiality agreements",
+          "We may disclose information if required by law or to protect our rights and users' safety",
+          "In case of business transfer, user data may be transferred under the same privacy protections",
+          "We will notify users of any significant changes to our data sharing practices"
+        ]
+      },
+      "userRights": {
+        "title": "5. Your Rights and Choices",
+        "items": [
+          "Access: Request a copy of the personal data we hold about you",
+          "Correction: Update or correct inaccurate personal information",
+          "Deletion: Request deletion of your personal data, subject to legal requirements",
+          "Portability: Request your data in a portable format",
+          "Opt-out: Unsubscribe from marketing communications at any time",
+          "Contact info@was2eat.com to exercise any of these rights"
+        ]
+      },
+      "dataRetention": {
+        "title": "6. Data Retention and Security",
+        "items": [
+          "We retain personal data only as long as necessary to provide our services",
+          "Account data is deleted within 30 days of account deletion request",
+          "Usage data may be retained in anonymized form for service improvement",
+          "We implement industry-standard security measures to protect your data",
+          "Data is encrypted in transit and at rest using appropriate technologies",
+          "We regularly review and update our security practices"
+        ]
+      },
+      "contact": {
+        "title": "7. Contact Information",
+        "items": [
+          "For privacy questions or data requests: info@was2eat.com",
+          "To report privacy concerns: info@was2eat.com",
+          "Mailing address: Sepapaja tn 6, 15551 Tallinn, Harju Maakond, Estonia",
+          "We respond to privacy inquiries within 30 days as required by applicable law",
+          "You have the right to lodge a complaint with your local data protection authority"
+        ]
+      }
+    }
+  },
+  "appInformationScreen": {
+    "title": "App Information",
+    "sections": {
+      "version": {
+        "title": "Version Information",
+        "items": [
+          "Current Version: 2.0.0",
+          "Release Date: 2024",
+          "Platform: iOS and Android",
+          "Bundle ID: com.was2eat.app",
+          "Minimum Requirements: iOS 12.0+ / Android 8.0+",
+          "Last Updated: Check your app store for latest updates"
+        ]
+      },
+      "features": {
+        "title": "Core Features",
+        "items": [
+          "Advanced barcode scanning for instant product analysis",
+          "Dual scoring system: Official Nutri-Score (A-E) + AI Health Score (0-100)",
+          "Comprehensive nutrition breakdown with detailed macro and micronutrient analysis",
+          "AI-powered additive safety assessment using EFSA guidelines",
+          "Health Tracker with daily, weekly, and monthly nutrition monitoring",
+          "Shopping Basket feature for meal planning and grocery organization",
+          "Smart product comparison with side-by-side nutritional analysis",
+          "Product favorites list with offline access",
+          "Scan history with automatic organization and cleanup",
+          "Advanced filtering and sorting for better product discovery",
+          "Multi-language support (English, German, French, Turkish)",
+          "Optional account system with Google authentication"
+        ]
+      },
+      "healthAnalysis": {
+        "title": "Health Analysis & Scoring",
+        "items": [
+          "Proprietary AI health scoring algorithm (0-100 scale)",
+          "Comprehensive evaluation of nutrition quality, processing level, and additive safety",
+          "Real-time analysis of proteins, fats, carbohydrates, fiber, sugars, and sodium",
+          "Trans fat and saturated fat assessment with health impact warnings",
+          "Additive risk evaluation with clear safety classifications",
+          "Allergen detection and warnings for common dietary restrictions",
+          "NOVA food processing classification for ultra-processed food identification",
+          "Personalized dietary recommendations based on scan history"
+        ]
+      },
+      "dataSources": {
+        "title": "Data Sources and Accuracy",
+        "items": [
+          "Product data sourced from OpenFoodFacts and verified manufacturer databases",
+          "Official nutrition information from product labels and regulatory filings",
+          "Additive safety data from EFSA (European Food Safety Authority)",
+          "Additional regulatory data from FDA, JECFA, and Codex Alimentarius",
+          "Enhanced additive database with over 400 food additives and safety assessments",
+          "AI-generated content clearly labeled and distinguished from official data",
+          "Database continuously updated with new products and regulatory changes",
+          "We strive for accuracy but recommend verifying critical information for severe allergies"
+        ]
+      },
+      "technology": {
+        "title": "Technology and Innovation",
+        "items": [
+          "Advanced barcode recognition using machine learning algorithms",
+          "AI-powered nutrition analysis with real-time health scoring",
+          "Cloud-based data processing for instant results and updates",
+          "Secure infrastructure with end-to-end encryption for user data",
+          "Cross-platform React Native development for iOS and Android",
+          "Regular algorithm updates to improve analysis accuracy",
+          "Offline capabilities for core features and favorite products",
+          "Optimized performance for fast scanning and data retrieval"
+        ]
+      },
+      "legal": {
+        "title": "Legal and Compliance",
+        "items": [
+          "Developer: Was2Eat Team",
+          "App Name: Was2Eat (was2eat-frontend)",
+          "Copyright: © 2024 Was2Eat. All rights reserved.",
+          "Registered in Estonia",
+          "Business Address: Sepapaja tn 6, 15551 Tallinn, Harju Maakond, Estonia",
+          "Support Contact: info@was2eat.com",
+          "Fully compliant with GDPR and international data protection laws",
+          "Regular security audits and privacy assessments"
+        ]
+      }
+    }
+  },
+  "communityScreen": {
+    "title": "Community",
+    "sections": {
+      "joinCommunity": {
+        "title": "Join Our Community",
+        "items": [
+          "Connect with health-conscious users worldwide",
+          "Share your favorite healthy product discoveries",
+          "Get tips and advice from nutrition enthusiasts",
+          "Participate in challenges and community events",
+          "Help others make better food choices",
+          "Stay motivated on your health journey together"
+        ]
+      },
+      "contribute": {
+        "title": "Contribute to Was2Eat",
+        "items": [
+          "Report missing products to help expand our database",
+          "Submit product photos and information",
+          "Provide feedback on nutrition analysis accuracy",
+          "Suggest new features and improvements",
+          "Help translate the app into new languages",
+          "Share Was2Eat with friends and family"
+        ]
+      },
+      "socialMedia": {
+        "title": "Follow Us on Social Media",
+        "items": [
+          "Instagram: @was2eat - Daily nutrition tips and product highlights",
+          "Twitter: @was2eat - Latest updates and community discussions",
+          "Facebook: Was2Eat Community - Join our growing community",
+          "LinkedIn: Was2Eat - Professional updates and partnerships",
+          "YouTube: Was2Eat Channel - Educational content and tutorials",
+          "TikTok: @was2eat - Quick tips and product reviews"
+        ]
+      },
+      "support": {
+        "title": "Community Support",
+        "items": [
+          "Help fellow users with product questions",
+          "Share your knowledge about nutrition and health",
+          "Report inappropriate content or behavior",
+          "Mentor new users getting started with the app",
+          "Organize local meetups and events",
+          "Contact info@was2eat.com for community guidelines"
+        ]
+      },
+      "recognition": {
+        "title": "Community Recognition",
+        "items": [
+          "Top contributors featured in our monthly newsletter",
+          "Special badges for active community members",
+          "Early access to new features and updates",
+          "Invitation to exclusive community events",
+          "Recognition in our social media channels",
+          "Opportunity to influence product development"
+        ]
+      }
+    }
+  },
+  "compareFloatingPanel": {
+    "title": "Compare Products",
+    "closedTitle": "Scanner Tools",
+    "dateLabels": {
+      "unknownDate": "Unknown date",
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "dayAgo": "1 day ago",
+      "daysAgo": "{{count}} days ago",
+      "weekAgo": "1 week ago",
+      "weeksAgo": "{{count}} weeks ago",
+      "monthAgo": "1 month ago",
+      "monthsAgo": "{{count}} months ago"
+    },
+    "actions": {
+      "remove": "Remove",
+      "cancel": "Cancel",
+      "compare": "Compare ({{count}})",
+      "update": "Update ({{count}})",
+      "showMore": "Show More",
+      "remaining": "remaining"
+    },
+    "sections": {
+      "compareProducts": "Compare Products",
+      "recentComparisons": "Recent Comparisons",
+      "scannedProducts": "Scanned Products",
+      "selectedProducts": "Selected Products",
+      "favorites": "Favorites",
+      "history": "History"
+    },
+    "labels": {
+      "nutriScore": "Nutri Score:",
+      "notAvailable": "N/A",
+      "alsoInFavorites": "Also in Favorites",
+      "alsoInHistory": "Also in History",
+      "vs": "vs"
+    },
+    "emptyStates": {
+      "scanProduct": "Scan a product ({{number}})",
+      "noProductsMessage": "No products available to compare",
+      "allSelected": "All your saved and recent products are already selected.",
+      "deselectToReplace": "Deselect products above to replace them."
+    },
+    "instructions": {
+      "deselectFirst": "First deselect products you want to replace",
+      "canSelect": "You can select {{count}} more product",
+      "selectToCompare": "Select {{count}} products to compare",
+      "scanToSeeDetails": "Scan products to see details, or swipe up for favorites & history",
+      "scanToCompare": "Scan another product to compare, or swipe up for more options"
+    }
+  },
+  "productCard": {
+    "dateLabels": {
+      "unknownDate": "Unknown date",
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "dayAgo": "1 day ago",
+      "daysAgo": "{{count}} days ago",
+      "weekAgo": "1 week ago",
+      "weeksAgo": "{{count}} weeks ago",
+      "monthAgo": "1 month ago",
+      "monthsAgo": "{{count}} months ago"
+    },
+    "labels": {
+      "nutriScore": "Nutri Score: ",
+      "healthScore": "Health Score: ",
+      "notAvailable": "N/A"
+    },
+    "nutriScoreDescriptions": {
+      "good": "Good",
+      "average": "Average",
+      "bad": "Bad",
+      "notAvailable": "Not Available"
+    }
+  },
+  "healthTracker": {
+    "title": "Health Tracker",
+    "statistics": "Statistics",
+    "aiInsights": "AI Insights",
+    "aiInsightsModal": {
+      "title": "AI Insights Coming Soon!",
+      "message": "We're training our AI to provide personalized nutrition insights based on your consumption patterns. Stay tuned for smart recommendations and health trends!",
+      "button": "Got it!"
+    },
+    "productAdded": "Product Added!",
+    "productAddedMessage": "This product has been added to your Health Tracker.",
+    "errorAdding": "Failed to add product to Health Tracker. Please try again.",
+    "removeProduct": "Remove Product",
+    "removeProductConfirm": "Are you sure you want to remove this product from your tracker?",
+    "removeError": "Failed to remove product. Please try again.",
+    "nutritionOverview": "Nutrition Overview",
+    "nutritionBreakdown": "Nutrition Breakdown",
+    "consumedProducts": "Consumed Products",
+    "products": "Products",
+    "noProducts": "No products consumed yet",
+    "scanToAdd": "Scan or search products and mark them as consumed to start tracking",
+    "today": "Today",
+    "thisWeek": "This Week",
+    "thisMonth": "This Month",
+    "last6Months": "Last 6 Months",
+    "thisYear": "This Year",
+    "totalForPeriod": "Total for period",
+    "dailyLimit": "Daily limit",
+    "showMore": "Show More",
+    "showLess": "Show Less",
+    "noAdditives": "No additives",
+    "tapToView": "Tap to view",
+    "consumed": "consumed",
+    "noAdditivesFound": "No additives found in consumed products.",
+    "periods": {
+      "daily": "Daily",
+      "weekly": "Weekly",
+      "monthly": "Monthly"
+    },
+    "nutrients": {
+      "calories": "Calories",
+      "protein": "Protein",
+      "carbs": "Carbs",
+      "fat": "Fat",
+      "fiber": "Fiber",
+      "sugar": "Sugar",
+      "sodium": "Sodium"
+    },
+    "nutrientLevels": {
+      "low": "Low",
+      "moderate": "Moderate",
+      "good": "Good",
+      "high": "High",
+      "notAvailable": "N/A"
+    },
+    "chartTypes": {
+      "pie": "Pie",
+      "bar": "Bar"
+    },
+    "chartDescriptions": {
+      "positivePieDescription": "Percentage breakdown of beneficial nutrients consumed over {period} - shows relative proportions",
+      "positiveBarDescription": "Total grams consumed over {period} - higher values are better",
+      "negativePieDescription": "Percentage breakdown of nutrients to limit consumed over {period} - shows relative proportions",
+      "negativeBarDescription": "Total grams consumed over {period} - lower values are better"
+    },
+    "editProducts": "Edit Products",
+    "deleteProductsModal": {
+      "title": "Delete Products",
+      "message": "Are you sure you want to delete the selected products from your health tracker?",
+      "confirmButton": "Delete",
+      "cancelButton": "Cancel"
+    },
+    "saveChangesModal": {
+      "title": "Save Changes",
+      "message": "Are you sure you want to save the quantity changes?",
+      "confirmButton": "Save",
+      "cancelButton": "Cancel"
+    },
+    "weeklyLimit": "Weekly limit",
+    "monthlyLimit": "Monthly limit",
+    "sixMonthlyLimit": "6-month limit",
+    "yearlyLimit": "Yearly limit"
+  }
+}

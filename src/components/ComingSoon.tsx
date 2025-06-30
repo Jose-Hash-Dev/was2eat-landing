@@ -1,6 +1,6 @@
 import { Box, Container, Typography, IconButton, Divider } from "@mui/material";
 import Image from "next/image";
-import Navigation from "./Navigation";
+import Navigation from "../components/Navigation";
 import Footer from "./Footer";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -11,7 +11,7 @@ export default function ComingSoon({ pageName }: { pageName: string }) {
     <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <Navigation />
 
-      <Container maxWidth="lg" sx={{ py: 6, flex: 1, textAlign: "center" }}>
+      <Container maxWidth="md" sx={{ py: 6, flex: 1, textAlign: "center" }}>
         <Typography variant="h3" color="#00bf63" gutterBottom>
           {pageName} is Almost Here!
         </Typography>

@@ -1,5 +1,5 @@
-import ComingSoon from "../../components/ComingSoon";
+import LegalPage from "../../components/LegalPage";
 
 export default function TermsPage() {
-  return <ComingSoon pageName="Terms Of Use" />;
+  return <LegalPage pageType="terms" />;
 }

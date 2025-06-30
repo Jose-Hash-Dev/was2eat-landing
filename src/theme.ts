@@ -7,7 +7,14 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: ["Roboto", "Arial", "sans-serif"].join(","),
+    fontFamily: [
+      "Inter",
+      "-apple-system",
+      "BlinkMacSystemFont",
+      "Segoe UI",
+      "Roboto",
+      "sans-serif",
+    ].join(","),
   },
   components: {
     MuiButton: {

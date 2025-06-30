@@ -10,7 +10,7 @@ const DownloadButtons: React.FC = () => {
           alt="Get it on Google Play"
           width={150}
           height={50}
-          style={{ maxWidth: "110px", height: "auto" }}
+          style={{ maxWidth: "140px", height: "auto" }}
         />
       </a>
 
@@ -20,7 +20,7 @@ const DownloadButtons: React.FC = () => {
           alt="Download on the App Store"
           width={150}
           height={50}
-          style={{ maxWidth: "100px", height: "auto" }}
+          style={{ maxWidth: "130px", height: "auto" }}
         />
       </a>
     </Box>

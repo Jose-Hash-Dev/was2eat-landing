@@ -9,7 +9,7 @@ export default function CareersPage() {
     <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <Navigation />
 
-      <Container maxWidth="lg" sx={{ py: 6, flex: 1, textAlign: "center" }}>
+      <Container maxWidth="md" sx={{ py: 6, flex: 1, textAlign: "center" }}>
         <Typography variant="h3" color="#00bf63" gutterBottom>
           Join the Was2Eat Team
         </Typography>

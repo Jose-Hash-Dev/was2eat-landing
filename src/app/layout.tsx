@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Poppins, Kalam } from "next/font/google";
 import "./globals.css";
 import ThemeRegistry from "@/components/ThemeRegistry";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -14,12 +14,24 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const kalam = Kalam({
+  variable: "--font-kalam",
+  subsets: ["latin"],
+  weight: ["300", "400", "700"],
+});
+
 export const metadata: Metadata = {
   title: "Was2Eat - Scan, Ask AI, Eat Smarter",
   description:
     "Was2Eat helps you make smarter, healthier food choices with AI-powered product insights.",
   icons: {
-    icon: "/images/logo-transparent-without-text.png",
+    icon: "/images/logo.png",
   },
   openGraph: {
     title: "Was2Eat - Scan, Ask AI, Eat Smarter",
@@ -28,7 +40,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://was2eat.com/images/logo-metadata.jpg",
+        url: "https://was2eat.com/images/logo.png",
         width: 1200,
         height: 630,
         alt: "Was2Eat App Screenshot",
@@ -40,7 +52,7 @@ export const metadata: Metadata = {
     site: "@was2eat",
     title: "Was2Eat - Scan, Ask AI, Eat Smarter",
     description: "AI-powered product scanner for healthier eating.",
-    images: ["https://was2eat.com/images/logo-metadata.jpg"],
+    images: ["https://was2eat.com/images/logo.png"],
   },
 };
 
@@ -51,7 +63,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${kalam.variable}`}
+      >
         <ThemeRegistry>
           {children} <SpeedInsights />
         </ThemeRegistry>
