@@ -52,9 +52,9 @@ const TrustedScienceSlider: React.FC<TrustedScienceSlidesProps> = ({ items }) =>
                 overflow: "hidden",
                 background: "linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%)",
                 border: "1px solid rgba(0,0,0,0.05)",
-                maxWidth: "280px",
+                maxWidth: "320px",
                 margin: "0 auto",
-                height: "280px",
+                height: "320px",
                 display: "flex",
                 flexDirection: "column",
               }}

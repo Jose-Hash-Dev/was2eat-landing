@@ -5,7 +5,7 @@ import Image from "next/image";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import DownloadButtons from "@/components/DownloadButtons";
-import FeaturesSlider from "@/components/FeaturesSlider";
+
 import TrustedScienceSlider from "@/components/TrustedScienceSlider";
 import { useState, useEffect } from "react";
 
@@ -91,6 +91,26 @@ export default function HomePage() {
           pb: { xs: 3, md: 6 },
         }}
       >
+        {/* Can touch This Text - Mobile Only */}
+        <Typography
+          variant="h6"
+          sx={{
+            position: "absolute",
+            top: "45%",
+            left: "10%",
+            fontFamily: "Kalam, cursive",
+            fontWeight: 400,
+            color: "#00bf63",
+            fontSize: "1.2rem",
+            zIndex: 3,
+            textShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+            transform: "rotate(-5deg)",
+            display: { xs: "block", md: "none" },
+          }}
+        >
+          Can touch This
+        </Typography>
+
         {/* Interactive Product Images */}
         {products.map((product, index) => {
           // Desktop positions - moved to black rectangle area
@@ -391,8 +411,8 @@ export default function HomePage() {
                     position: "relative",
                     overflow: "hidden",
                     borderRadius: "12px",
-                    width: { xs: "160px", md: "240px" },
-                    minHeight: { xs: "160px", md: "240px" },
+                    width: { xs: "200px", md: "240px" },
+                    minHeight: { xs: "200px", md: "240px" },
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -407,7 +427,7 @@ export default function HomePage() {
                     alt="Was2Eat App Product Details"
                     width={240}
                     height={0}
-                    sizes="(max-width: 768px) 160px, 240px"
+                    sizes="(max-width: 768px) 200px, 240px"
                     style={{
                       width: "100%",
                       height: "auto",
@@ -459,37 +479,8 @@ export default function HomePage() {
           </Box>
         </Container>
 
-        {/* Mobile Features Slider */}
-        <Box sx={{ display: { xs: "block", md: "none" } }}>
-          <FeaturesSlider
-            features={[
-              {
-                title: "Analyze Every Product Instantly",
-                description:
-                  "Scan any food barcode to instantly access comprehensive nutrition analysis from our OpenFoodFacts database. Get dual scoring with official Nutri-Score (A-E rating) plus our proprietary AI-enhanced Health Score (0-100). Receive detailed additive safety analysis using official EFSA data combined with AI assessment to understand exactly what's in your food and how it affects your health.",
-                image: "kinder-analysis",
-                imagePosition: "left",
-              },
-              {
-                title: "Compare Products Side-by-Side",
-                description:
-                  "Use our smart comparison mode to compare multiple products side-by-side and find healthier alternatives that match your dietary preferences. View visual charts with detailed nutritional breakdowns, health scores, and additive analysis to make informed choices. Sort products by health score, nutrients, or dietary preferences to discover the best options for your lifestyle.",
-                image: "product-comparison",
-                imagePosition: "right",
-              },
-              {
-                title: "Monitor Your Daily Nutrition",
-                description:
-                  "Track your daily nutrition intake by marking products as consumed and get comprehensive insights into your eating patterns. Set personalized nutrition goals and monitor your progress with daily, weekly, and monthly analytics. View detailed breakdowns of proteins, fats, carbohydrates, fiber, and energy content to understand your nutritional balance and make informed dietary decisions.",
-                image: "health-tracker-section",
-                imagePosition: "left",
-              },
-            ]}
-          />
-        </Box>
-
-        {/* Desktop Individual Feature Sections */}
-        <Box sx={{ display: { xs: "none", md: "block" } }}>
+        {/* Feature Sections - All Devices */}
+        <Box>
           {[
             {
               title: "Analyze Every Product Instantly",
@@ -974,19 +965,19 @@ export default function HomePage() {
                 {
                   title: "EFSA Compliance",
                   description:
-                    "All additive safety evaluations are based on European Food Safety Authority guidelines and official regulatory assessments.",
+                    "All additive safety evaluations are based on European Food Safety Authority guidelines and official regulatory assessments. Our system continuously updates with the latest EFSA findings to ensure accurate risk assessments.",
                   icon: "/images/logo.png",
                 },
                 {
                   title: "OpenFoodFacts Integration",
                   description:
-                    "Product data sourced from the world's largest collaborative food database with millions of verified products.",
+                    "Product data sourced from the world's largest collaborative food database with millions of verified products. This ensures comprehensive coverage across global food markets and brands.",
                   icon: "/images/logo.png",
                 },
                 {
                   title: "Transparent AI Technology",
                   description:
-                    "Our machine learning algorithms enhance official data while maintaining complete transparency.",
+                    "Our machine learning algorithms enhance official data while maintaining complete transparency. We prioritize explainable AI to help users understand how recommendations are made.",
                   icon: "/images/logo.png",
                 },
               ]}
@@ -1041,7 +1032,8 @@ export default function HomePage() {
                       }}
                     >
                       All additive safety evaluations are based on European Food Safety Authority
-                      guidelines and official regulatory assessments.
+                      guidelines and official regulatory assessments. Our system continuously
+                      updates with the latest EFSA findings to ensure accurate risk assessments.
                     </Typography>
                   </Box>
                 </Box>
@@ -1085,7 +1077,8 @@ export default function HomePage() {
                       }}
                     >
                       Product data sourced from the world&apos;s largest collaborative food database
-                      with millions of verified products.
+                      with millions of verified products. This ensures comprehensive coverage across
+                      global food markets and brands.
                     </Typography>
                   </Box>
                 </Box>
@@ -1130,7 +1123,8 @@ export default function HomePage() {
                     >
                       Our machine learning algorithms enhance official data while maintaining
                       complete transparency. All AI-generated insights are clearly labeled and
-                      distinguished from regulatory information.
+                      distinguished from regulatory information. We prioritize explainable AI to
+                      help users understand how recommendations are made.
                     </Typography>
                   </Box>
                 </Box>
