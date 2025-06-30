@@ -5,6 +5,8 @@ import Image from "next/image";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import DownloadButtons from "@/components/DownloadButtons";
+import FeaturesSlider from "@/components/FeaturesSlider";
+import TrustedScienceSlider from "@/components/TrustedScienceSlider";
 import { useState, useEffect } from "react";
 
 export default function HomePage() {
@@ -26,18 +28,37 @@ export default function HomePage() {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 100,
-        y: (e.clientY / window.innerHeight) * 100,
-      });
-      setAbsoluteMousePosition({
-        x: e.clientX,
-        y: e.clientY,
-      });
+      // Only track mouse on desktop
+      if (window.innerWidth >= 768) {
+        setMousePosition({
+          x: (e.clientX / window.innerWidth) * 100,
+          y: (e.clientY / window.innerHeight) * 100,
+        });
+        setAbsoluteMousePosition({
+          x: e.clientX,
+          y: e.clientY,
+        });
+      }
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      // Handle touch interactions on mobile
+      if (window.innerWidth < 768 && e.touches.length > 0) {
+        const touch = e.touches[0];
+        setMousePosition({
+          x: (touch.clientX / window.innerWidth) * 100,
+          y: (touch.clientY / window.innerHeight) * 100,
+        });
+      }
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchstart", handleTouchStart);
+    };
   }, []);
 
   const handleProductHover = (productId: string) => {
@@ -58,15 +79,16 @@ export default function HomePage() {
 
       {/* Hero Section with Parallax Mouse Tracking */}
       <Box
+        className="hero-section"
         sx={{
-          minHeight: "70vh",
+          minHeight: { xs: "60vh", md: "70vh" },
           background: "linear-gradient(45deg, #ffffff 30%, #f0f8f0 90%)",
           position: "relative",
           overflow: "hidden",
           display: "flex",
           alignItems: "center",
-          pt: { xs: 2, md: 4 },
-          pb: { xs: 4, md: 6 },
+          pt: { xs: 1, md: 4 },
+          pb: { xs: 3, md: 6 },
         }}
       >
         {/* Interactive Product Images */}
@@ -115,25 +137,21 @@ export default function HomePage() {
             },
           ];
 
-          // Mobile positions - positioned in black rectangle area
+          // Mobile positions - same layout as desktop but scaled for mobile
           const mobilePositions = [
-            { top: "20%", left: "8%", transform: "rotate(10deg)" },
-            { top: "30%", left: "25%", transform: "rotate(-15deg)" },
-            { top: "50%", left: "5%", transform: "rotate(5deg)" },
-            { top: "65%", left: "20%", transform: "rotate(-10deg)" },
+            { top: "50%", left: "29%", transform: "rotate(15deg)" },
+            { top: "60%", left: "24%", transform: "rotate(-10deg)" },
+            { top: "75%", left: "35%", transform: "rotate(0deg)" },
+            { top: "60%", left: "8%", transform: "rotate(25deg)" },
+            { top: "80%", left: "23%", transform: "rotate(-5deg)" },
+            { top: "75%", left: "5%", transform: "rotate(35deg)" },
           ];
 
           const maxWidths = [120, 100, 90, 80, 70, 95];
-          const mobileMaxWidths = [80, 70, 60, 50]; // Smaller for mobile
+          const mobileMaxWidths = [70, 60, 55, 50, 45, 50]; // Smaller for better mobile layout
           const opacities = [0.7, 0.6, 0.8, 0.5, 0.4, 0.65];
 
-          // Show only 4 products on mobile, all 6 on desktop
-          const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-          if (isMobile && index >= 4) return null;
-
-          const currentPositions = isMobile ? mobilePositions : desktopPositions;
-          const currentMaxWidths = isMobile ? mobileMaxWidths : maxWidths;
-          const currentIndex = isMobile ? Math.min(index, 3) : index;
+          const currentIndex = index;
 
           return (
             <Box
@@ -143,19 +161,29 @@ export default function HomePage() {
                 transition: "all 0.3s ease-out",
                 cursor: "pointer",
                 zIndex: 2,
-                ...currentPositions[currentIndex],
                 opacity: opacities[currentIndex],
-                display: { xs: index < 4 ? "block" : "none", md: "block" },
+                // Desktop positions
+                ...desktopPositions[currentIndex],
+                // Mobile positions override
+                "@media (max-width: 768px)": {
+                  ...mobilePositions[currentIndex],
+                },
                 "&:hover": {
                   opacity: 1,
-                  transform: `${currentPositions[currentIndex].transform} scale(1.1)`,
                   zIndex: 10,
+                  transform: {
+                    xs: `${mobilePositions[currentIndex].transform} scale(1.1)`,
+                    md: `${desktopPositions[currentIndex].transform} scale(1.1)`,
+                  },
                 },
                 // Touch interactions for mobile
                 "&:active": {
                   opacity: 1,
-                  transform: `${currentPositions[currentIndex].transform} scale(1.1)`,
                   zIndex: 10,
+                  transform: {
+                    xs: `${mobilePositions[currentIndex].transform} scale(1.1)`,
+                    md: `${desktopPositions[currentIndex].transform} scale(1.1)`,
+                  },
                 },
               }}
               onMouseEnter={() => handleProductHover(product.id)}
@@ -164,17 +192,21 @@ export default function HomePage() {
               onTouchStart={() => handleProductHover(product.id)}
               onTouchEnd={handleProductLeave}
             >
-              <Image
+              <Box
+                component="img"
                 src={`/images/scan-images/product-images/${product.id}.png`}
                 alt={product.name}
-                width={0}
-                height={0}
-                sizes="(max-width: 768px) 80px, 120px"
-                style={{
+                sx={{
                   width: "auto",
                   height: "auto",
-                  maxWidth: `${currentMaxWidths[currentIndex]}px`,
-                  maxHeight: `${currentMaxWidths[currentIndex]}px`,
+                  maxWidth: {
+                    xs: `${mobileMaxWidths[currentIndex]}px`,
+                    md: `${maxWidths[currentIndex]}px`,
+                  },
+                  maxHeight: {
+                    xs: `${mobileMaxWidths[currentIndex]}px`,
+                    md: `${maxWidths[currentIndex]}px`,
+                  },
                 }}
               />
             </Box>
@@ -249,12 +281,12 @@ export default function HomePage() {
           </svg>
         </Box>
 
-        <Container maxWidth="lg">
-          <Grid container spacing={6} alignItems="flex-start">
+        <Container maxWidth="lg" className="container-mobile">
+          <Grid container spacing={{ xs: 3, md: 6 }} alignItems="flex-start">
             <Grid item xs={12} md={6}>
               <Box
                 sx={{
-                  mt: { xs: 2, md: 4 }, // Add top margin to align with image
+                  mt: { xs: 2, md: 4 },
                 }}
               >
                 <Typography
@@ -265,7 +297,8 @@ export default function HomePage() {
                     fontFamily: "Kalam, cursive",
                     fontWeight: 400,
                     color: "#2c3e50",
-                    fontSize: { xs: "1.7rem", md: "2rem" },
+                    fontSize: { xs: "1.8rem", sm: "2rem", md: "2.2rem" },
+                    lineHeight: { xs: 1.2, md: 1.3 },
                   }}
                 >
                   Scan. <span style={{ color: "#00bf63", fontWeight: "700" }}>Ask AI.</span> Eat
@@ -273,7 +306,7 @@ export default function HomePage() {
                 </Typography>
                 <Typography
                   sx={{
-                    mb: 4,
+                    mb: { xs: 3, md: 4 },
                     color: "#7f8c8d",
                     fontWeight: 400,
                     lineHeight: 1.6,
@@ -291,14 +324,15 @@ export default function HomePage() {
                 sx={{
                   position: "relative",
                   transform: {
-                    xs: isScanning ? "scale(1.02)" : "scale(1)", // Subtle scaling on mobile
+                    xs: isScanning ? "scale(1.02)" : "scale(1)",
                     md: `translate(${mousePosition.x * -0.01}px, ${mousePosition.y * 0.01}px) ${
                       isScanning ? "scale(1.05)" : "scale(1)"
                     }`,
                   },
                   transition: "all 0.3s ease-out",
                   display: "flex",
-                  justifyContent: "center",
+                  justifyContent: { xs: "flex-end", md: "center" },
+                  pr: { xs: 2, md: 0 },
                 }}
               >
                 {/* Mascot 2 - positioned near the product image, presenting it */}
@@ -357,8 +391,8 @@ export default function HomePage() {
                     position: "relative",
                     overflow: "hidden",
                     borderRadius: "12px",
-                    width: "240px",
-                    minHeight: "240px",
+                    width: { xs: "160px", md: "240px" },
+                    minHeight: { xs: "160px", md: "240px" },
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -373,11 +407,12 @@ export default function HomePage() {
                     alt="Was2Eat App Product Details"
                     width={240}
                     height={0}
-                    sizes="(max-width: 768px) 200px, 240px"
+                    sizes="(max-width: 768px) 160px, 240px"
                     style={{
-                      width: "240px",
+                      width: "100%",
                       height: "auto",
-
+                      maxWidth: "240px",
+                      borderRadius: "12px",
                       boxShadow: isScanning
                         ? "0 8px 24px rgba(0,191,99,0.25)"
                         : "0 8px 24px rgba(0,0,0,0.1)",
@@ -394,12 +429,17 @@ export default function HomePage() {
 
       {/* App Features Section */}
       <Box
+        className="feature-section"
         sx={{
-          py: { xs: 4, md: 6 },
+          py: { xs: 3, md: 6 },
         }}
       >
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1, mb: { xs: 6, md: 8 } }}>
-          <Box sx={{ textAlign: "center", mb: 6 }}>
+        <Container
+          maxWidth="lg"
+          className="container-mobile"
+          sx={{ position: "relative", zIndex: 1, mb: { xs: 4, md: 8 } }}
+        >
+          <Box sx={{ textAlign: "center", mb: { xs: 4, md: 6 } }}>
             <Typography
               variant="h5"
               component="h2"
@@ -408,7 +448,9 @@ export default function HomePage() {
                 fontFamily: "Kalam, cursive",
                 fontWeight: 400,
                 color: "#2c3e50",
-                fontSize: { xs: "1.7rem", md: "2rem" },
+                fontSize: { xs: "1.6rem", sm: "1.8rem", md: "2rem" },
+                lineHeight: { xs: 1.2, md: 1.3 },
+                px: { xs: 1, md: 0 },
               }}
             >
               Everything You Need to
@@ -417,445 +459,496 @@ export default function HomePage() {
           </Box>
         </Container>
 
-        {/* Individual Feature Sections */}
-        {[
-          {
-            title: "Analyze Every Product Instantly",
-            description:
-              "Scan any food barcode to instantly access comprehensive nutrition analysis from our OpenFoodFacts database. Get dual scoring with official Nutri-Score (A-E rating) plus our proprietary AI-enhanced Health Score (0-100). Receive detailed additive safety analysis using official EFSA data combined with AI assessment to understand exactly what's in your food and how it affects your health.",
-            image: "kinder-analysis",
-            imagePosition: "left",
-          },
-          {
-            title: "Compare Products Side-by-Side",
-            description:
-              "Use our smart comparison mode to compare multiple products side-by-side and find healthier alternatives that match your dietary preferences. View visual charts with detailed nutritional breakdowns, health scores, and additive analysis to make informed choices. Sort products by health score, nutrients, or dietary preferences to discover the best options for your lifestyle.",
-            image: "product-comparison",
-            imagePosition: "right",
-          },
-          {
-            title: "Monitor Your Daily Nutrition",
-            description:
-              "Track your daily nutrition intake by marking products as consumed and get comprehensive insights into your eating patterns. Set personalized nutrition goals and monitor your progress with daily, weekly, and monthly analytics. View detailed breakdowns of proteins, fats, carbohydrates, fiber, and energy content to understand your nutritional balance and make informed dietary decisions.",
-            image: "health-tracker-section",
-            imagePosition: "left",
-          },
-        ].map((feature, index) => (
-          <Container
-            maxWidth="lg"
-            key={index}
-            sx={{ position: "relative", zIndex: 1, mb: { xs: 4, md: 6 } }}
-          >
-            <Grid
-              container
-              spacing={4}
-              alignItems="center"
-              direction={feature.imagePosition === "left" ? "row-reverse" : "row"}
+        {/* Mobile Features Slider */}
+        <Box sx={{ display: { xs: "block", md: "none" } }}>
+          <FeaturesSlider
+            features={[
+              {
+                title: "Analyze Every Product Instantly",
+                description:
+                  "Scan any food barcode to instantly access comprehensive nutrition analysis from our OpenFoodFacts database. Get dual scoring with official Nutri-Score (A-E rating) plus our proprietary AI-enhanced Health Score (0-100). Receive detailed additive safety analysis using official EFSA data combined with AI assessment to understand exactly what's in your food and how it affects your health.",
+                image: "kinder-analysis",
+                imagePosition: "left",
+              },
+              {
+                title: "Compare Products Side-by-Side",
+                description:
+                  "Use our smart comparison mode to compare multiple products side-by-side and find healthier alternatives that match your dietary preferences. View visual charts with detailed nutritional breakdowns, health scores, and additive analysis to make informed choices. Sort products by health score, nutrients, or dietary preferences to discover the best options for your lifestyle.",
+                image: "product-comparison",
+                imagePosition: "right",
+              },
+              {
+                title: "Monitor Your Daily Nutrition",
+                description:
+                  "Track your daily nutrition intake by marking products as consumed and get comprehensive insights into your eating patterns. Set personalized nutrition goals and monitor your progress with daily, weekly, and monthly analytics. View detailed breakdowns of proteins, fats, carbohydrates, fiber, and energy content to understand your nutritional balance and make informed dietary decisions.",
+                image: "health-tracker-section",
+                imagePosition: "left",
+              },
+            ]}
+          />
+        </Box>
+
+        {/* Desktop Individual Feature Sections */}
+        <Box sx={{ display: { xs: "none", md: "block" } }}>
+          {[
+            {
+              title: "Analyze Every Product Instantly",
+              description:
+                "Scan any food barcode to instantly access comprehensive nutrition analysis from our OpenFoodFacts database. Get dual scoring with official Nutri-Score (A-E rating) plus our proprietary AI-enhanced Health Score (0-100). Receive detailed additive safety analysis using official EFSA data combined with AI assessment to understand exactly what's in your food and how it affects your health.",
+              image: "kinder-analysis",
+              imagePosition: "left",
+            },
+            {
+              title: "Compare Products Side-by-Side",
+              description:
+                "Use our smart comparison mode to compare multiple products side-by-side and find healthier alternatives that match your dietary preferences. View visual charts with detailed nutritional breakdowns, health scores, and additive analysis to make informed choices. Sort products by health score, nutrients, or dietary preferences to discover the best options for your lifestyle.",
+              image: "product-comparison",
+              imagePosition: "right",
+            },
+            {
+              title: "Monitor Your Daily Nutrition",
+              description:
+                "Track your daily nutrition intake by marking products as consumed and get comprehensive insights into your eating patterns. Set personalized nutrition goals and monitor your progress with daily, weekly, and monthly analytics. View detailed breakdowns of proteins, fats, carbohydrates, fiber, and energy content to understand your nutritional balance and make informed dietary decisions.",
+              image: "health-tracker-section",
+              imagePosition: "left",
+            },
+          ].map((feature, index) => (
+            <Container
+              maxWidth="lg"
+              className="container-mobile"
+              key={index}
+              sx={{ position: "relative", zIndex: 1, mb: { xs: 3, md: 6 } }}
             >
-              {/* Text Content */}
-              <Grid item xs={12} md={6}>
-                <Box
-                  sx={{
-                    pr: feature.imagePosition === "right" ? { md: 4 } : 0,
-                    pl: feature.imagePosition === "left" ? { md: 4 } : 0,
-                  }}
-                >
-                  <Typography
-                    variant="h6"
-                    component="h3"
-                    gutterBottom
+              <Grid
+                container
+                spacing={{ xs: 3, md: 4 }}
+                alignItems="center"
+                direction={feature.imagePosition === "left" ? "row-reverse" : "row"}
+              >
+                {/* Text Content */}
+                <Grid item xs={12} md={6}>
+                  <Box
                     sx={{
-                      fontFamily: "Kalam, cursive",
-                      fontWeight: 400,
-                      color: "#00BF63",
-                      fontSize: { xs: "1.5rem", md: "1.7rem" },
-                      lineHeight: 1.3,
-                      mb: 1.5,
+                      pr: feature.imagePosition === "right" ? { md: 4 } : 0,
+                      pl: feature.imagePosition === "left" ? { md: 4 } : 0,
+                      textAlign: { xs: "center", md: "left" },
                     }}
                   >
-                    {feature.title}
-                  </Typography>
+                    <Typography
+                      variant="h6"
+                      component="h3"
+                      gutterBottom
+                      sx={{
+                        fontFamily: "Kalam, cursive",
+                        fontWeight: 400,
+                        color: "#00BF63",
+                        fontSize: { xs: "1.3rem", sm: "1.4rem", md: "1.7rem" },
+                        lineHeight: 1.3,
+                        mb: { xs: 1, md: 1.5 },
+                      }}
+                    >
+                      {feature.title}
+                    </Typography>
 
-                  <Typography
-                    variant="body1"
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        color: "#666",
+                        fontSize: { xs: "0.9rem", md: "1rem" },
+                        lineHeight: 1.6,
+                        mb: { xs: 2, md: 3 },
+                        maxWidth: { xs: "100%", md: "90%" },
+                        mx: { xs: "auto", md: 0 },
+                      }}
+                    >
+                      {feature.description}
+                    </Typography>
+                  </Box>
+                </Grid>
+
+                {/* Feature Image */}
+                <Grid item xs={12} md={6}>
+                  <Box
                     sx={{
-                      color: "#666",
-                      fontSize: { xs: "0.9rem", md: "1rem" },
-                      lineHeight: 1.6,
-                      mb: 3,
+                      position: "relative",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
                   >
-                    {feature.description}
-                  </Typography>
-                </Box>
-              </Grid>
-
-              {/* Feature Image */}
-              <Grid item xs={12} md={6}>
-                <Box
-                  sx={{
-                    position: "relative",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  {feature.image === "health-tracker-section" ? (
-                    // Health Tracker Section Image
-                    <Box
-                      sx={{
-                        position: "relative",
-                        transform: `translate(${
-                          mousePosition.x * (feature.imagePosition === "left" ? -0.02 : 0.02)
-                        }px, ${mousePosition.y * 0.01}px)`,
-                        transition: "transform 0.3s ease-out",
-                      }}
-                    >
-                      <Image
-                        src="/images/features-section/health-tracker-section.png"
-                        alt="Health Tracker Section"
-                        width={300}
-                        height={200}
-                        style={{
-                          width: "400px",
-                          height: "auto",
-                          maxWidth: "350px",
-                        }}
-                      />
-                    </Box>
-                  ) : feature.image === "product-comparison" ? (
-                    // Product Comparison Layout with VS
-                    <Box
-                      sx={{
-                        position: "relative",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 2,
-                        transform: `translate(${
-                          mousePosition.x * (feature.imagePosition === "left" ? -0.02 : 0.02)
-                        }px, ${mousePosition.y * 0.01}px)`,
-                        transition: "transform 0.3s ease-out",
-                      }}
-                    >
-                      {/* First Product */}
+                    {feature.image === "health-tracker-section" ? (
+                      // Health Tracker Section Image
                       <Box
                         sx={{
                           position: "relative",
+                          transform: `translate(${
+                            mousePosition.x * (feature.imagePosition === "left" ? -0.02 : 0.02)
+                          }px, ${mousePosition.y * 0.01}px)`,
+                          transition: "transform 0.3s ease-out",
                         }}
                       >
                         <Image
-                          src="/images/scan-images/product-images/8000500242612.png"
-                          alt="Product 1"
-                          width={120}
-                          height={120}
+                          src="/images/features-section/health-tracker-section.png"
+                          alt="Health Tracker Section"
+                          width={300}
+                          height={200}
                           style={{
-                            width: "auto",
+                            width: "400px",
                             height: "auto",
-                            maxWidth: "120px",
+                            maxWidth: "350px",
                           }}
                         />
                       </Box>
-
-                      {/* VS Text */}
+                    ) : feature.image === "product-comparison" ? (
+                      // Product Comparison Layout with VS
                       <Box
                         sx={{
-                          background: "rgba(0, 191, 99, 0.1)",
-                          border: "2px solid #00bf63",
-                          borderRadius: "50%",
-                          width: "50px",
-                          height: "50px",
+                          position: "relative",
                           display: "flex",
                           alignItems: "center",
-                          justifyContent: "center",
-                          flexShrink: 0,
+                          gap: 2,
+                          transform: `translate(${
+                            mousePosition.x * (feature.imagePosition === "left" ? -0.02 : 0.02)
+                          }px, ${mousePosition.y * 0.01}px)`,
+                          transition: "transform 0.3s ease-out",
                         }}
                       >
-                        <Typography
-                          variant="body2"
+                        {/* First Product */}
+                        <Box
                           sx={{
-                            fontFamily: "Kalam, cursive",
-                            fontWeight: 700,
-                            color: "#00bf63",
-                            fontSize: "1rem",
+                            position: "relative",
                           }}
                         >
-                          VS
-                        </Typography>
-                      </Box>
-
-                      {/* Second Product */}
-                      <Box
-                        sx={{
-                          position: "relative",
-                        }}
-                      >
-                        <Image
-                          src="/images/scan-images/product-images/3017620422003.png"
-                          alt="Product 2"
-                          width={120}
-                          height={120}
-                          style={{
-                            width: "auto",
-                            height: "auto",
-                            maxWidth: "120px",
-                          }}
-                        />
-                      </Box>
-                    </Box>
-                  ) : feature.image.includes("analysis") || feature.image.includes("kinder") ? (
-                    // Special Product Analysis Layout
-                    <Box
-                      sx={{
-                        position: "relative",
-                        transform: `translate(${
-                          mousePosition.x * (feature.imagePosition === "left" ? -0.02 : 0.02)
-                        }px, ${mousePosition.y * 0.01}px)`,
-                        transition: "transform 0.3s ease-out",
-                      }}
-                    >
-                      {/* Main Product Image */}
-                      <Box
-                        sx={{
-                          position: "relative",
-                        }}
-                      >
-                        <Image
-                          src="/images/scan-images/product-images/8000500242612.png"
-                          alt={`${feature.title} Product Analysis`}
-                          width={180}
-                          height={180}
-                          style={{
-                            width: "auto",
-                            height: "auto",
-                            maxWidth: "180px",
-                          }}
-                        />
-                      </Box>
-
-                      {/* Health Score Badge - Different scores for variety */}
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          top: -15,
-                          right: -10,
-                          background: "rgba(255, 255, 255, 0.95)",
-                          backdropFilter: "blur(10px)",
-                          borderRadius: "20px",
-                          px: 2.5,
-                          py: 1,
-                          border: "2px solid #ff6b35",
-                          boxShadow: "0 4px 16px rgba(255, 107, 53, 0.3)",
-                          transform: `translate(${mousePosition.x * -0.02}px, ${
-                            mousePosition.y * -0.01
-                          }px)`,
-                          transition: "transform 0.3s ease-out",
-                        }}
-                      >
-                        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                          <Box
-                            sx={{
-                              width: "10px",
-                              height: "10px",
-                              borderRadius: "50%",
-                              background: "#ff6b35",
+                          <Image
+                            src="/images/scan-images/product-images/8000500242612.png"
+                            alt="Product 1"
+                            width={120}
+                            height={120}
+                            style={{
+                              width: "auto",
+                              height: "auto",
+                              maxWidth: "120px",
                             }}
                           />
+                        </Box>
+
+                        {/* VS Text */}
+                        <Box
+                          sx={{
+                            background: "rgba(0, 191, 99, 0.1)",
+                            border: "2px solid #00bf63",
+                            borderRadius: "50%",
+                            width: "50px",
+                            height: "50px",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            flexShrink: 0,
+                          }}
+                        >
                           <Typography
                             variant="body2"
                             sx={{
-                              color: "#ff6b35",
-                              fontWeight: "bold",
-                              fontSize: "0.8rem",
+                              fontFamily: "Kalam, cursive",
+                              fontWeight: 700,
+                              color: "#00bf63",
+                              fontSize: "1rem",
                             }}
                           >
-                            Bad - 21/100
+                            VS
                           </Typography>
                         </Box>
-                      </Box>
 
-                      {/* Analysis Details - First badge */}
+                        {/* Second Product */}
+                        <Box
+                          sx={{
+                            position: "relative",
+                          }}
+                        >
+                          <Image
+                            src="/images/scan-images/product-images/3017620422003.png"
+                            alt="Product 2"
+                            width={120}
+                            height={120}
+                            style={{
+                              width: "auto",
+                              height: "auto",
+                              maxWidth: "120px",
+                            }}
+                          />
+                        </Box>
+                      </Box>
+                    ) : feature.image.includes("analysis") || feature.image.includes("kinder") ? (
+                      // Special Product Analysis Layout
                       <Box
                         sx={{
-                          position: "absolute",
-                          top: 20,
-                          right: -40,
-                          background: "rgba(255, 255, 255, 0.95)",
-                          backdropFilter: "blur(10px)",
-                          borderRadius: "12px",
-                          px: 2,
-                          py: 1,
-                          border: "1px solid rgba(0, 0, 0, 0.1)",
-                          boxShadow: "0 4px 16px rgba(0, 0, 0, 0.1)",
-                          transform: `translate(${mousePosition.x * 0.01}px, ${
-                            mousePosition.y * 0.02
-                          }px)`,
+                          position: "relative",
+                          transform: `translate(${
+                            mousePosition.x * (feature.imagePosition === "left" ? -0.02 : 0.02)
+                          }px, ${mousePosition.y * 0.01}px)`,
                           transition: "transform 0.3s ease-out",
                         }}
                       >
-                        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                          <Box
-                            sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
-                          >
-                            <Image
-                              src="/images/icons/additiveIcon.png"
-                              alt="Additive Icon"
-                              width={16}
-                              height={16}
-                              style={{
-                                width: "16px",
-                                height: "16px",
+                        {/* Main Product Image */}
+                        <Box
+                          sx={{
+                            position: "relative",
+                          }}
+                        >
+                          <Image
+                            src="/images/scan-images/product-images/8000500242612.png"
+                            alt={`${feature.title} Product Analysis`}
+                            width={180}
+                            height={180}
+                            style={{
+                              width: "auto",
+                              height: "auto",
+                              maxWidth: "180px",
+                            }}
+                          />
+                        </Box>
+
+                        {/* Health Score Badge - Different scores for variety */}
+                        <Box
+                          sx={{
+                            position: "absolute",
+                            top: -15,
+                            right: -10,
+                            background: "rgba(255, 255, 255, 0.95)",
+                            backdropFilter: "blur(10px)",
+                            borderRadius: "20px",
+                            px: 2.5,
+                            py: 1,
+                            border: "2px solid #ff6b35",
+                            boxShadow: "0 4px 16px rgba(255, 107, 53, 0.3)",
+                            transform: `translate(${mousePosition.x * -0.02}px, ${
+                              mousePosition.y * -0.01
+                            }px)`,
+                            transition: "transform 0.3s ease-out",
+                          }}
+                        >
+                          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                            <Box
+                              sx={{
+                                width: "10px",
+                                height: "10px",
+                                borderRadius: "50%",
+                                background: "#ff6b35",
                               }}
                             />
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                color: "#ff6b35",
+                                fontWeight: "bold",
+                                fontSize: "0.8rem",
+                              }}
+                            >
+                              Bad - 21/100
+                            </Typography>
                           </Box>
-                          <Typography
-                            variant="body2"
-                            sx={{
-                              color: "#666",
-                              fontSize: "0.75rem",
-                              fontWeight: 600,
-                            }}
-                          >
-                            6 additives
-                          </Typography>
+                        </Box>
+
+                        {/* Analysis Details - First badge */}
+                        <Box
+                          sx={{
+                            position: "absolute",
+                            top: 20,
+                            right: -40,
+                            background: "rgba(255, 255, 255, 0.95)",
+                            backdropFilter: "blur(10px)",
+                            borderRadius: "12px",
+                            px: 2,
+                            py: 1,
+                            border: "1px solid rgba(0, 0, 0, 0.1)",
+                            boxShadow: "0 4px 16px rgba(0, 0, 0, 0.1)",
+                            transform: `translate(${mousePosition.x * 0.01}px, ${
+                              mousePosition.y * 0.02
+                            }px)`,
+                            transition: "transform 0.3s ease-out",
+                          }}
+                        >
+                          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                            <Box
+                              sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                              }}
+                            >
+                              <Image
+                                src="/images/icons/additiveIcon.png"
+                                alt="Additive Icon"
+                                width={16}
+                                height={16}
+                                style={{
+                                  width: "16px",
+                                  height: "16px",
+                                }}
+                              />
+                            </Box>
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                color: "#666",
+                                fontSize: "0.75rem",
+                                fontWeight: 600,
+                              }}
+                            >
+                              6 additives
+                            </Typography>
+                          </Box>
+                        </Box>
+
+                        {/* Analysis Details - Second badge */}
+                        <Box
+                          sx={{
+                            position: "absolute",
+                            bottom: 20,
+                            right: -35,
+                            background: "rgba(255, 255, 255, 0.95)",
+                            backdropFilter: "blur(10px)",
+                            borderRadius: "12px",
+                            px: 2,
+                            py: 1,
+                            border: "1px solid rgba(0, 0, 0, 0.1)",
+                            boxShadow: "0 4px 16px rgba(0, 0, 0, 0.1)",
+                            transform: `translate(${mousePosition.x * -0.01}px, ${
+                              mousePosition.y * 0.01
+                            }px)`,
+                            transition: "transform 0.3s ease-out",
+                          }}
+                        >
+                          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                            <Box
+                              sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                              }}
+                            >
+                              <Image
+                                src="/images/icons/sugarIcon.png"
+                                alt="Sugar Icon"
+                                width={16}
+                                height={16}
+                                style={{
+                                  width: "16px",
+                                  height: "16px",
+                                }}
+                              />
+                            </Box>
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                color: "#666",
+                                fontSize: "0.75rem",
+                                fontWeight: 600,
+                              }}
+                            >
+                              Too sweet
+                            </Typography>
+                          </Box>
+                        </Box>
+
+                        {/* Analysis Details - Third badge */}
+                        <Box
+                          sx={{
+                            position: "absolute",
+                            bottom: -10,
+                            right: -25,
+                            background: "rgba(255, 255, 255, 0.95)",
+                            backdropFilter: "blur(10px)",
+                            borderRadius: "12px",
+                            px: 2,
+                            py: 1,
+                            border: "1px solid rgba(0, 0, 0, 0.1)",
+                            boxShadow: "0 4px 16px rgba(0, 0, 0, 0.1)",
+                            transform: `translate(${mousePosition.x * 0.02}px, ${
+                              mousePosition.y * -0.01
+                            }px)`,
+                            transition: "transform 0.3s ease-out",
+                          }}
+                        >
+                          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                            <Box
+                              sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                              }}
+                            >
+                              <Image
+                                src="/images/icons/caloriesIcon.png"
+                                alt="Calories Icon"
+                                width={16}
+                                height={16}
+                                style={{
+                                  width: "16px",
+                                  height: "16px",
+                                }}
+                              />
+                            </Box>
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                color: "#666",
+                                fontSize: "0.75rem",
+                                fontWeight: 600,
+                              }}
+                            >
+                              Too caloric
+                            </Typography>
+                          </Box>
                         </Box>
                       </Box>
-
-                      {/* Analysis Details - Second badge */}
+                    ) : (
+                      // Regular Feature Image
                       <Box
                         sx={{
-                          position: "absolute",
-                          bottom: 20,
-                          right: -35,
-                          background: "rgba(255, 255, 255, 0.95)",
-                          backdropFilter: "blur(10px)",
-                          borderRadius: "12px",
-                          px: 2,
-                          py: 1,
-                          border: "1px solid rgba(0, 0, 0, 0.1)",
-                          boxShadow: "0 4px 16px rgba(0, 0, 0, 0.1)",
-                          transform: `translate(${mousePosition.x * -0.01}px, ${
-                            mousePosition.y * 0.01
-                          }px)`,
+                          position: "relative",
+                          transform: `translate(${
+                            mousePosition.x * (feature.imagePosition === "left" ? -0.02 : 0.02)
+                          }px, ${mousePosition.y * 0.01}px)`,
                           transition: "transform 0.3s ease-out",
                         }}
                       >
-                        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                          <Box
-                            sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
-                          >
-                            <Image
-                              src="/images/icons/sugarIcon.png"
-                              alt="Sugar Icon"
-                              width={16}
-                              height={16}
-                              style={{
-                                width: "16px",
-                                height: "16px",
-                              }}
-                            />
-                          </Box>
-                          <Typography
-                            variant="body2"
-                            sx={{
-                              color: "#666",
-                              fontSize: "0.75rem",
-                              fontWeight: 600,
-                            }}
-                          >
-                            Too sweet
-                          </Typography>
-                        </Box>
+                        <Image
+                          src={`/images/scan-images/product-details-screen/${feature.image}`}
+                          alt={`${feature.title} Screen`}
+                          width={140}
+                          height={140}
+                          style={{
+                            width: "auto",
+                            height: "auto",
+                            maxWidth: "140px",
+                            borderRadius: "16px",
+                            boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
+                          }}
+                        />
                       </Box>
-
-                      {/* Analysis Details - Third badge */}
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          bottom: -10,
-                          right: -25,
-                          background: "rgba(255, 255, 255, 0.95)",
-                          backdropFilter: "blur(10px)",
-                          borderRadius: "12px",
-                          px: 2,
-                          py: 1,
-                          border: "1px solid rgba(0, 0, 0, 0.1)",
-                          boxShadow: "0 4px 16px rgba(0, 0, 0, 0.1)",
-                          transform: `translate(${mousePosition.x * 0.02}px, ${
-                            mousePosition.y * -0.01
-                          }px)`,
-                          transition: "transform 0.3s ease-out",
-                        }}
-                      >
-                        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                          <Box
-                            sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
-                          >
-                            <Image
-                              src="/images/icons/caloriesIcon.png"
-                              alt="Calories Icon"
-                              width={16}
-                              height={16}
-                              style={{
-                                width: "16px",
-                                height: "16px",
-                              }}
-                            />
-                          </Box>
-                          <Typography
-                            variant="body2"
-                            sx={{
-                              color: "#666",
-                              fontSize: "0.75rem",
-                              fontWeight: 600,
-                            }}
-                          >
-                            Too caloric
-                          </Typography>
-                        </Box>
-                      </Box>
-                    </Box>
-                  ) : (
-                    // Regular Feature Image
-                    <Box
-                      sx={{
-                        position: "relative",
-                        transform: `translate(${
-                          mousePosition.x * (feature.imagePosition === "left" ? -0.02 : 0.02)
-                        }px, ${mousePosition.y * 0.01}px)`,
-                        transition: "transform 0.3s ease-out",
-                      }}
-                    >
-                      <Image
-                        src={`/images/scan-images/product-details-screen/${feature.image}`}
-                        alt={`${feature.title} Screen`}
-                        width={140}
-                        height={140}
-                        style={{
-                          width: "auto",
-                          height: "auto",
-                          maxWidth: "140px",
-                          borderRadius: "16px",
-                          boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
-                        }}
-                      />
-                    </Box>
-                  )}
-                </Box>
+                    )}
+                  </Box>
+                </Grid>
               </Grid>
-            </Grid>
-          </Container>
-        ))}
+            </Container>
+          ))}
+        </Box>
       </Box>
 
       {/* Data Sources & AI Section */}
       <Box
         sx={{
-          py: { xs: 4, md: 6 },
+          py: { xs: 3, md: 6 },
           background: "linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%)",
         }}
       >
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-          <Box sx={{ textAlign: "center", mb: 6 }}>
+        <Container
+          maxWidth="lg"
+          className="container-mobile"
+          sx={{ position: "relative", zIndex: 1 }}
+        >
+          <Box sx={{ textAlign: "center", mb: { xs: 4, md: 6 } }}>
             <Typography
               variant="h5"
               component="h2"
@@ -864,7 +957,9 @@ export default function HomePage() {
                 fontFamily: "Kalam, cursive",
                 fontWeight: 400,
                 color: "#2c3e50",
-                fontSize: { xs: "1.7rem", md: "2rem" },
+                fontSize: { xs: "1.6rem", sm: "1.8rem", md: "2rem" },
+                lineHeight: { xs: 1.2, md: 1.3 },
+                px: { xs: 1, md: 0 },
               }}
             >
               Built on
@@ -872,7 +967,39 @@ export default function HomePage() {
             </Typography>
           </Box>
 
-          <Grid container spacing={8} alignItems="center">
+          {/* Mobile Trusted Science Slider */}
+          <Box sx={{ display: { xs: "block", md: "none" }, mb: 4 }}>
+            <TrustedScienceSlider
+              items={[
+                {
+                  title: "EFSA Compliance",
+                  description:
+                    "All additive safety evaluations are based on European Food Safety Authority guidelines and official regulatory assessments.",
+                  icon: "/images/logo.png",
+                },
+                {
+                  title: "OpenFoodFacts Integration",
+                  description:
+                    "Product data sourced from the world's largest collaborative food database with millions of verified products.",
+                  icon: "/images/logo.png",
+                },
+                {
+                  title: "Transparent AI Technology",
+                  description:
+                    "Our machine learning algorithms enhance official data while maintaining complete transparency.",
+                  icon: "/images/logo.png",
+                },
+              ]}
+            />
+          </Box>
+
+          {/* Desktop Layout */}
+          <Grid
+            container
+            spacing={{ xs: 4, md: 8 }}
+            alignItems="center"
+            sx={{ display: { xs: "none", md: "flex" } }}
+          >
             <Grid item xs={12} md={6}>
               <Box sx={{ pr: { md: 4 } }}>
                 {/* EFSA Compliance */}

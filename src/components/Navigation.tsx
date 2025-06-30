@@ -39,7 +39,7 @@ export default function Navigation() {
       sx={{
         position: "fixed",
         width: "100%",
-        height: "80px",
+        height: { xs: "70px", md: "80px" },
         top: 0,
         left: 0,
         zIndex: 1000,
@@ -50,13 +50,14 @@ export default function Navigation() {
         py: 1,
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" className="container-mobile">
         <Toolbar
           sx={{
             justifyContent: "space-between",
             py: 0,
             height: "100%",
             alignItems: "center",
+            minHeight: { xs: "70px", md: "80px" },
           }}
         >
           {/* Logo */}
@@ -68,7 +69,7 @@ export default function Navigation() {
               height={50}
               style={{
                 width: "auto",
-                height: "50px",
+                height: "40px",
               }}
             />
             <Typography
@@ -80,8 +81,8 @@ export default function Navigation() {
                 fontWeight: 700,
                 color: "#2c3e50",
                 textDecoration: "none",
-                fontSize: "2rem",
-                ml: 2,
+                fontSize: { xs: "1.5rem", md: "2rem" },
+                ml: { xs: 1, md: 2 },
               }}
             >
               Was2Eat
@@ -102,6 +103,7 @@ export default function Navigation() {
                   py: 1,
                   borderRadius: "8px",
                   transition: "all 0.3s ease",
+                  minHeight: "44px",
                   "&:hover": {
                     color: "#00bf63",
                     bgcolor: "rgba(0,191,99,0.08)",
@@ -120,6 +122,8 @@ export default function Navigation() {
               onClick={handleClick}
               sx={{
                 color: "#666",
+                width: "48px",
+                height: "48px",
                 "&:hover": {
                   color: "#00bf63",
                   bgcolor: "rgba(0,191,99,0.08)",
@@ -130,8 +134,8 @@ export default function Navigation() {
               <Box
                 component="svg"
                 sx={{
-                  width: 24,
-                  height: 24,
+                  width: 28,
+                  height: 28,
                   fill: "currentColor",
                 }}
                 viewBox="0 0 24 24"
@@ -153,7 +157,7 @@ export default function Navigation() {
                   border: "1px solid rgba(0,0,0,0.06)",
                   borderRadius: "12px",
                   mt: 1,
-                  minWidth: "160px",
+                  minWidth: "180px",
                 },
               }}
               transformOrigin={{ horizontal: "right", vertical: "top" }}
@@ -168,8 +172,10 @@ export default function Navigation() {
                   sx={{
                     color: "#666",
                     fontWeight: 500,
-                    py: 1.5,
-                    px: 2,
+                    py: 2,
+                    px: 3,
+                    minHeight: "48px",
+                    fontSize: "1.1rem",
                     transition: "all 0.3s ease",
                     "&:hover": {
                       color: "#00bf63",

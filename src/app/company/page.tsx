@@ -1,12 +1,4 @@
-import {
-  Box,
-  Container,
-  Grid,
-  Typography,
-  Avatar,
-  IconButton,
-  Tooltip,
-} from "@mui/material";
+import { Box, Container, Grid, Typography, Avatar, IconButton, Tooltip } from "@mui/material";
 import Image from "next/image";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
@@ -49,11 +41,153 @@ export default function CompanyPage() {
       <Navigation />
 
       <Container maxWidth="md" sx={{ py: { xs: 4, md: 6 }, flex: 1 }}>
-        {/* About Section */}
+        {/* Team Section - Moved to top */}
         <Box sx={{ textAlign: "center", mb: { xs: 6, md: 8 } }}>
           <Typography
             variant="h3"
-            component="h1"
+            component="h2"
+            gutterBottom
+            sx={{
+              fontFamily: "Kalam, cursive",
+              fontWeight: 400,
+              color: "#00BF63",
+              fontSize: { xs: "1.7rem", md: "2rem" },
+              mb: 2,
+            }}
+          >
+            Our Team
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{
+              color: "#7f8c8d",
+              fontWeight: 400,
+              lineHeight: 1.6,
+              fontSize: { xs: "1rem", md: "1.1rem" },
+              maxWidth: "700px",
+              mx: "auto",
+            }}
+          >
+            Meet the passionate team behind Was2Eat, dedicated to making food choices smarter and
+            healthier through innovative AI technology.
+          </Typography>
+        </Box>
+
+        {/* Team Members */}
+        <Grid container spacing={4} justifyContent="center" sx={{ mb: 8 }}>
+          {teamMembers.map((member, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <Box sx={{ textAlign: "center", height: "100%" }}>
+                <Box
+                  sx={{
+                    position: "relative",
+                    display: "inline-block",
+                    mb: 2,
+                  }}
+                >
+                  <Avatar
+                    src={member.image}
+                    alt={member.name}
+                    sx={{
+                      width: { xs: 120, md: 150 },
+                      height: { xs: 120, md: 150 },
+                      boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
+                      border: "3px solid #00BF63",
+                    }}
+                  />
+                </Box>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontFamily: "Kalam, cursive",
+                    fontWeight: 400,
+                    color: "#00BF63",
+                    fontSize: { xs: "1.3rem", md: "1.5rem" },
+                    mb: 1,
+                  }}
+                >
+                  {member.name}
+                </Typography>
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    color: "#666",
+                    fontSize: { xs: "0.9rem", md: "1rem" },
+                    fontWeight: 500,
+                    mb: 2,
+                  }}
+                >
+                  {member.role}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: "#666",
+                    fontSize: { xs: "0.85rem", md: "0.9rem" },
+                    lineHeight: 1.5,
+                    mb: 2,
+                  }}
+                >
+                  {member.description}
+                </Typography>
+
+                <Box sx={{ display: "flex", justifyContent: "center", gap: 1, mt: 2 }}>
+                  <Tooltip title="LinkedIn">
+                    <IconButton
+                      href={member.linkedin}
+                      target="_blank"
+                      sx={{
+                        color: "#0077B5",
+                        "&:hover": {
+                          transform: "scale(1.1)",
+                          transition: "transform 0.2s ease",
+                        },
+                      }}
+                    >
+                      <LinkedInIcon sx={{ fontSize: { xs: 28, md: 32 } }} />
+                    </IconButton>
+                  </Tooltip>
+
+                  <Tooltip title="GitHub">
+                    <IconButton
+                      href={member.github}
+                      target="_blank"
+                      sx={{
+                        color: "#333",
+                        "&:hover": {
+                          transform: "scale(1.1)",
+                          transition: "transform 0.2s ease",
+                        },
+                      }}
+                    >
+                      <GitHubIcon sx={{ fontSize: { xs: 28, md: 32 } }} />
+                    </IconButton>
+                  </Tooltip>
+                </Box>
+
+                {/* Divider below each team member (except the last one) */}
+                <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+                  <Box
+                    sx={{
+                      width: "80%",
+                      height: "1px",
+                      background:
+                        index < teamMembers.length - 1
+                          ? "linear-gradient(90deg, transparent 0%, #e0e0e0 20%, #e0e0e0 80%, transparent 100%)"
+                          : "transparent",
+                    }}
+                  />
+                </Box>
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
+
+        {/* About Was2Eat Section */}
+        <Box sx={{ textAlign: "center", mb: { xs: 6, md: 8 } }}>
+          <Typography
+            variant="h3"
+            component="h2"
             gutterBottom
             sx={{
               fontFamily: "Kalam, cursive",
@@ -74,7 +208,7 @@ export default function CompanyPage() {
               fontSize: { xs: "1rem", md: "1.1rem" },
               maxWidth: "800px",
               mx: "auto",
-              mb: 6,
+              mb: 4,
             }}
           >
             Empowering you to make informed, healthier food choices with every scan through
@@ -881,128 +1015,6 @@ export default function CompanyPage() {
             </Grid>
           </Grid>
         </Box>
-
-        {/* Team Section */}
-        <Box sx={{ textAlign: "center", mb: { xs: 4, md: 6 } }}>
-          <Typography
-            variant="h3"
-            component="h2"
-            gutterBottom
-            sx={{
-              fontFamily: "Kalam, cursive",
-              fontWeight: 400,
-              color: "#00BF63",
-              fontSize: { xs: "1.7rem", md: "2rem" },
-
-              mb: 2,
-            }}
-          >
-            Our Team
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              color: "#7f8c8d",
-              fontWeight: 400,
-              lineHeight: 1.6,
-              fontSize: { xs: "1rem", md: "1.1rem" },
-              maxWidth: "700px",
-              mx: "auto",
-            }}
-          >
-            Meet the passionate team behind Was2Eat, dedicated to making food choices smarter and
-            healthier through innovative AI technology.
-          </Typography>
-        </Box>
-
-        {/* Team Members */}
-        <Grid container spacing={4} justifyContent="center" sx={{ mb: 6 }}>
-          {teamMembers.map((member, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <Box sx={{ textAlign: "center", height: "100%" }}>
-                <Avatar
-                  src={member.image}
-                  alt={member.name}
-                  sx={{
-                    width: { xs: 120, md: 150 },
-                    height: { xs: 120, md: 150 },
-                    margin: "0 auto",
-                    mb: 2,
-                    boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
-                  }}
-                />
-                <Typography
-                  variant="h5"
-                  sx={{
-                    fontFamily: "Kalam, cursive",
-                    fontWeight: 400,
-                    color: "#00BF63",
-                    fontSize: { xs: "1.3rem", md: "1.5rem" },
-                    mb: 1,
-                  }}
-                >
-                  {member.name}
-                </Typography>
-                <Typography
-                  variant="subtitle1"
-                  sx={{
-                    color: "#666",
-                    fontSize: { xs: "0.9rem", md: "1rem" },
-                    fontWeight: 500,
-                    mb: 2,
-                  }}
-                >
-                  {member.role}
-                </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    color: "#666",
-                    fontSize: { xs: "0.85rem", md: "0.9rem" },
-                    lineHeight: 1.5,
-                    mb: 2,
-                  }}
-                >
-                  {member.description}
-                </Typography>
-
-                <Box sx={{ display: "flex", justifyContent: "center", gap: 1, mt: 2 }}>
-                  <Tooltip title="LinkedIn">
-                    <IconButton
-                      href={member.linkedin}
-                      target="_blank"
-                      sx={{
-                        color: "#0077B5",
-                        "&:hover": {
-                          transform: "scale(1.1)",
-                          transition: "transform 0.2s ease",
-                        },
-                      }}
-                    >
-                      <LinkedInIcon sx={{ fontSize: { xs: 28, md: 32 } }} />
-                    </IconButton>
-                  </Tooltip>
-
-                  <Tooltip title="GitHub">
-                    <IconButton
-                      href={member.github}
-                      target="_blank"
-                      sx={{
-                        color: "#333",
-                        "&:hover": {
-                          transform: "scale(1.1)",
-                          transition: "transform 0.2s ease",
-                        },
-                      }}
-                    >
-                      <GitHubIcon sx={{ fontSize: { xs: 28, md: 32 } }} />
-                    </IconButton>
-                  </Tooltip>
-                </Box>
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
 
         {/* Social Media Section */}
         <Box sx={{ textAlign: "center", mt: 6 }}>

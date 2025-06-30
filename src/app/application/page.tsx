@@ -1,11 +1,17 @@
 "use client";
 
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography, Card, CardContent } from "@mui/material";
 import Image from "next/image";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import DownloadButtons from "../../components/DownloadButtons";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
 import { useState, useEffect } from "react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
 
 export default function ApplicationPage() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -95,46 +101,198 @@ export default function ApplicationPage() {
         }}
       >
         <Container maxWidth="lg">
-          <Grid container spacing={2} alignItems="center">
-            {/* Left Side - Dynamic Image */}
-            <Grid item xs={12} md={5}>
-              <Box
-                sx={{
-                  position: "relative",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  minHeight: "400px",
-                }}
-              >
+          {/* Mobile Layout */}
+          <Box sx={{ display: { xs: "block", md: "none" } }}>
+            <Grid container spacing={3} alignItems="center">
+              {/* Mobile Image - Top */}
+              <Grid item xs={12}>
                 <Box
                   sx={{
                     position: "relative",
-                    transform: `translate(${mousePosition.x * 0.02}px, ${
-                      mousePosition.y * 0.01
-                    }px) rotate(-12deg)`,
-                    transition: "transform 0.3s ease-out",
+                    display: "flex",
+                    justifyContent: "flex-start",
+                    alignItems: "center",
+                    minHeight: "300px",
+                    mb: 3,
+                    pl: 3,
                   }}
                 >
-                  <Image
-                    src={`/images/application-screen/${currentImage}.png`}
-                    alt="Application Feature"
-                    width={320}
-                    height={200}
-                    style={{
-                      width: "auto",
-                      height: "auto",
-                      maxHeight: "550px",
-                      transition: "opacity 0.3s ease",
+                  {/* Main App Image */}
+                  <Box
+                    sx={{
+                      position: "relative",
+                      zIndex: 2,
+                      transform: "rotate(-8deg)",
+                      mr: 3,
                     }}
-                  />
-                </Box>
-              </Box>
-            </Grid>
+                  >
+                    <Image
+                      src={`/images/application-screen/${currentImage}.png`}
+                      alt="Application Feature"
+                      width={260}
+                      height={160}
+                      style={{
+                        width: "auto",
+                        height: "auto",
+                        maxHeight: "380px",
+                        transition: "opacity 0.3s ease",
+                      }}
+                    />
+                  </Box>
 
-            {/* Right Side - Sections List */}
+                  {/* Mobile Mascot */}
+                  <Box
+                    sx={{
+                      position: "relative",
+                      zIndex: 1,
+                    }}
+                  >
+                    <Image
+                      src="/images/mascot/1.png"
+                      alt="Was2Eat Mascot"
+                      width={180}
+                      height={180}
+                      style={{
+                        width: "180px",
+                        height: "180px",
+                      }}
+                    />
+                  </Box>
+                </Box>
+              </Grid>
+
+              {/* Mobile Cards Slider */}
+              <Grid item xs={12}>
+                <Box sx={{ px: 2 }}>
+                  <Swiper
+                    modules={[Pagination, Autoplay]}
+                    spaceBetween={15}
+                    slidesPerView={1.2}
+                    centeredSlides={true}
+                    loop={true}
+                    autoplay={{
+                      delay: 4000,
+                      disableOnInteraction: false,
+                      pauseOnMouseEnter: true,
+                    }}
+                    speed={1000}
+                    pagination={{
+                      clickable: true,
+                      bulletClass: "swiper-pagination-bullet",
+                      bulletActiveClass: "swiper-pagination-bullet-active",
+                    }}
+                    style={{
+                      paddingBottom: "40px",
+                      overflow: "visible",
+                    }}
+                    onSlideChange={(swiper) => {
+                      const activeIndex = swiper.realIndex;
+                      setCurrentImage(applicationSections[activeIndex].image);
+                    }}
+                  >
+                    {applicationSections.map((section, index) => (
+                      <SwiperSlide key={index}>
+                        <Card
+                          sx={{
+                            borderRadius: "16px",
+                            boxShadow: "0 6px 20px rgba(0,0,0,0.08)",
+                            overflow: "hidden",
+                            background: "linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%)",
+                            border: "1px solid rgba(0,0,0,0.05)",
+                            maxWidth: "280px",
+                            margin: "0 auto",
+                            height: "200px",
+                            display: "flex",
+                            flexDirection: "column",
+                          }}
+                        >
+                          <CardContent
+                            sx={{
+                              p: 2.5,
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "center",
+                              flex: 1,
+                              textAlign: "center",
+                            }}
+                          >
+                            <Typography
+                              variant="h6"
+                              component="h3"
+                              gutterBottom
+                              sx={{
+                                fontFamily: "Kalam, cursive",
+                                fontWeight: 400,
+                                color: "#00BF63",
+                                fontSize: "1.2rem",
+                                lineHeight: 1.3,
+                                mb: 1.5,
+                              }}
+                            >
+                              {section.title}
+                            </Typography>
+
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                color: "#666",
+                                fontSize: "0.85rem",
+                                lineHeight: 1.5,
+                                flex: 1,
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                              }}
+                            >
+                              {section.description}
+                            </Typography>
+                          </CardContent>
+                        </Card>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+
+                  {/* Custom Swiper Styles */}
+                  <style jsx global>{`
+                    .swiper-pagination-bullet {
+                      background: #ccc !important;
+                      opacity: 1 !important;
+                      width: 8px !important;
+                      height: 8px !important;
+                      transition: all 0.3s ease !important;
+                    }
+                    .swiper-pagination-bullet-active {
+                      background: #00bf63 !important;
+                      width: 20px !important;
+                      border-radius: 4px !important;
+                    }
+                    .swiper-pagination {
+                      bottom: 8px !important;
+                    }
+                    .swiper-slide {
+                      transition: transform 0.3s ease !important;
+                    }
+                  `}</style>
+                </Box>
+
+                {/* Mobile Download Buttons */}
+                <Box sx={{ mt: 4, textAlign: "center" }}>
+                  <DownloadButtons />
+                </Box>
+              </Grid>
+            </Grid>
+          </Box>
+
+          {/* Desktop Layout - Show only on desktop */}
+          <Grid
+            container
+            spacing={2}
+            alignItems="center"
+            sx={{ display: { xs: "none", md: "flex" } }}
+          >
+            {/* Left Side - Sections List */}
             <Grid item xs={12} md={7}>
-              <Box sx={{ pl: { md: 1 } }}>
+              <Box sx={{ pr: { md: 2 } }}>
                 {applicationSections.map((section, index) => (
                   <Box
                     key={index}
@@ -205,6 +363,42 @@ export default function ApplicationPage() {
                     </Box>
                   </Box>
                 ))}
+              </Box>
+            </Grid>
+
+            {/* Right Side - Dynamic Image (smaller and on right) */}
+            <Grid item xs={12} md={5}>
+              <Box
+                sx={{
+                  position: "relative",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  minHeight: "400px",
+                }}
+              >
+                <Box
+                  sx={{
+                    position: "relative",
+                    transform: `translate(${mousePosition.x * 0.01}px, ${
+                      mousePosition.y * 0.005
+                    }px) rotate(-8deg)`,
+                    transition: "transform 0.3s ease-out",
+                  }}
+                >
+                  <Image
+                    src={`/images/application-screen/${currentImage}.png`}
+                    alt="Application Feature"
+                    width={240}
+                    height={150}
+                    style={{
+                      width: "auto",
+                      height: "auto",
+                      maxHeight: "400px",
+                      transition: "opacity 0.3s ease",
+                    }}
+                  />
+                </Box>
               </Box>
             </Grid>
           </Grid>

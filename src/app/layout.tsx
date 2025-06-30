@@ -30,6 +30,7 @@ export const metadata: Metadata = {
   title: "Was2Eat - Scan, Ask AI, Eat Smarter",
   description:
     "Was2Eat helps you make smarter, healthier food choices with AI-powered product insights.",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes",
   icons: {
     icon: "/images/logo.png",
   },

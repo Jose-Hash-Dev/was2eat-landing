@@ -25,6 +25,54 @@ body {
   padding-top: 80px; /* Match the navbar height of 80px */
 }
 
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px; /* Slightly smaller navbar on mobile */
+  }
+
+  /* Improve touch interactions */
+  * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Allow text selection for content */
+  p,
+  span,
+  div[class*="Typography"],
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+
+  /* Improve tap targets */
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Prevent zoom on input focus */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -34,6 +82,27 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mobile viewport optimizations */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 60vh !important;
+  }
+
+  .feature-section {
+    padding: 2rem 0 !important;
+  }
+
+  .container-mobile {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

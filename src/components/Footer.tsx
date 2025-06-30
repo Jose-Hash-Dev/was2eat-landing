@@ -16,12 +16,13 @@ const Footer = () => {
         overflow: "hidden",
       }}
     >
-      {/* Mascot Image */}
+      {/* Mascot Image - Centered */}
       <Box
         sx={{
           position: "absolute",
-          right: 20,
+          left: "50%",
           bottom: 0,
+          transform: "translateX(-50%)",
           zIndex: 1,
         }}
       >
